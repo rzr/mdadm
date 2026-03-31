@@ -1,4 +1,3 @@
-From a822017f30e0dadc60a687900c2aa4da32e09a93 Mon Sep 17 00:00:00 2001
 From: Mariusz Tkaczyk <mariusz.tkaczyk@intel.com>
 Date: Thu, 10 Aug 2017 11:43:48 +0200
 Subject: [RHEL7.5 PATCH 162/169] Detail: correct output for active arrays
@@ -106,6 +105,3 @@ index 8eeb509..c1c8509 100644
  /*
   * Get array info from the kernel. Longer term we want to deprecate the
   * ioctl and get it from sysfs.
--- 
-2.7.4
-
