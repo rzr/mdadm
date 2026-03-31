@@ -1,4 +1,3 @@
-From 84d969be8f6d8a345b75f558fad26e4f62a558f6 Mon Sep 17 00:00:00 2001
 From: Kinga Tanska <kinga.tanska@intel.com>
 Date: Thu, 14 Jul 2022 09:02:11 +0200
 Subject: [PATCH 30/83] Monitor: use snprintf to fill device name
@@ -12,7 +11,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 14 insertions(+), 23 deletions(-)
 
 diff --git a/Monitor.c b/Monitor.c
-index a5b11ae2..93f36ac0 100644
+index a5b11ae..93f36ac 100644
 --- a/Monitor.c
 +++ b/Monitor.c
 @@ -33,8 +33,8 @@
@@ -128,6 +127,3 @@ index a5b11ae2..93f36ac0 100644
  				sl = strchr(st->parent_devnm, '/');
  				*sl = 0;
  			} else
--- 
-2.38.1
-
