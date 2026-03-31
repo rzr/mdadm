@@ -147,7 +147,9 @@ struct option long_options[] = {
     {"data-offset",1, 0, DataOffset},
     {"nodes",1, 0, Nodes}, /* also for --assemble */
     {"home-cluster",1, 0, ClusterName},
+#if 0 /*Disable for rhel7.5*/
     {"write-journal",1, 0, WriteJournal},
+#endif
     {"consistency-policy", 1, 0, 'k'},
 
     /* For assemble */
@@ -163,7 +165,9 @@ struct option long_options[] = {
     /* Management */
     {"add",       0, 0, Add},
     {"add-spare", 0, 0, AddSpare},
+#if 0 /*Disable for rhel7.5*/
     {"add-journal", 0, 0, AddJournal},
+#endif
     {"remove",    0, 0, Remove},
     {"fail",      0, 0, Fail},
     {"set-faulty",0, 0, Fail},
@@ -383,7 +387,9 @@ char Help_create[] =
 "  --name=            -N : Textual name for array - max 32 characters\n"
 "  --bitmap-chunk=       : bitmap chunksize in Kilobytes.\n"
 "  --delay=           -d : bitmap update delay in seconds.\n"
+#if 0 /*Disable for rhel7.5*/
 "  --write-journal=      : Specify journal device for RAID-4/5/6 array\n"
+#endif
 "  --consistency-policy= : Specify the policy that determines how the array\n"
 "                     -k : maintains consistency in case of unexpected shutdown.\n"
 "\n"
