@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:49 +0200
+Subject: Avoid-to-take-spare-without-defined-domain-by-imsm
+
 commit 3bf9495270d7cd00da942e183dc5f7c7eb68ff69
 Author: Mariusz Tkaczyk <mariusz.tkaczyk@intel.com>
 Date:   Thu Jan 11 12:39:49 2018 +0100
@@ -13,6 +17,9 @@ Date:   Thu Jan 11 12:39:49 2018 +0100
     
     Signed-off-by: Mariusz Tkaczyk <mariusz.tkaczyk@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ policy.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/policy.c b/policy.c
 index b17585a..c0d18a7 100644
