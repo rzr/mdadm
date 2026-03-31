@@ -1,8 +1,7 @@
-From 1c9591115d577841522acd245cd2445cb77ee204 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 5 Apr 2017 15:46:35 -0400
-Subject: [RHEL7.5 PATCH 064/169] mdassemble: Use md_get_array_info() to
- check for valid array
+Subject: [RHEL7.5 PATCH 064/169] mdassemble: Use md_get_array_info() to check
+ for valid array
 
 Get rid of another use of md_get_version()
 
@@ -33,6 +32,3 @@ index a24b324..f0833bc 100644
  		close(mdfd);
  		mdfd = -1;
  	}
--- 
-2.7.4
-
