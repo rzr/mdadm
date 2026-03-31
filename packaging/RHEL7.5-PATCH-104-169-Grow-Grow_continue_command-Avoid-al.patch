@@ -1,8 +1,7 @@
-From 9e4524df1c6c85c362278a08fd4425888d27581f Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 2 May 2017 11:46:49 -0400
-Subject: [RHEL7.5 PATCH 104/169] Grow: Grow_continue_command: Avoid
- aliasing array variable
+Subject: [RHEL7.5 PATCH 104/169] Grow: Grow_continue_command: Avoid aliasing
+ array variable
 
 While this would cause a warning since the two are different types,
 lets avoid aliasing an existing variable.
@@ -36,6 +35,3 @@ index c6967ed..f4bd301 100755
  			if (!mdstat)
  				continue;
  			if (mdstat->active == 0) {
--- 
-2.7.4
-
