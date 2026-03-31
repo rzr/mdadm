@@ -26,8 +26,21 @@
 #include	"mdadm.h"
 #include	<dirent.h>
 #include	<ctype.h>
+#include	"dlink.h"
 
 #define MAX_SYSFS_PATH_LEN	120
+
+struct dev_sysfs_rule {
+	struct dev_sysfs_rule *next;
+	char *devname;
+	int uuid[4];
+	int uuid_set;
+	struct sysfs_entry {
+		struct sysfs_entry *next;
+		char *name;
+		char *value;
+	} *entry;
+};
 
 int load_sys(char *path, char *buf, int len)
 {
@@ -78,24 +91,36 @@ int sysfs_open(char *devnm, char *devname, char *attr)
 	return fd;
 }
 
-void sysfs_init_dev(struct mdinfo *mdi, unsigned long devid)
+void sysfs_init_dev(struct mdinfo *mdi, dev_t devid)
 {
 	snprintf(mdi->sys_name,
 		 sizeof(mdi->sys_name), "dev-%s", devid2kname(devid));
 }
 
-void sysfs_init(struct mdinfo *mdi, int fd, char *devnm)
+int sysfs_init(struct mdinfo *mdi, int fd, char *devnm)
 {
+	struct stat stb;
+	char fname[MAX_SYSFS_PATH_LEN];
+	int retval = -ENODEV;
+
 	mdi->sys_name[0] = 0;
-	if (fd >= 0) {
-		mdu_version_t vers;
-		if (ioctl(fd, RAID_VERSION, &vers) != 0)
-			return;
+	if (fd >= 0)
 		devnm = fd2devnm(fd);
-	}
+
 	if (devnm == NULL)
-		return;
+		goto out;
+
+	snprintf(fname, MAX_SYSFS_PATH_LEN, "/sys/block/%s/md", devnm);
+
+	if (stat(fname, &stb))
+		goto out;
+	if (!S_ISDIR(stb.st_mode))
+		goto out;
 	strcpy(mdi->sys_name, devnm);
+
+	retval = 0;
+out:
+	return retval;
 }
 
 struct mdinfo *sysfs_read(int fd, char *devnm, unsigned long options)
@@ -110,8 +135,7 @@ struct mdinfo *sysfs_read(int fd, char *devnm, unsigned long options)
 	struct dirent *de;
 
 	sra = xcalloc(1, sizeof(*sra));
-	sysfs_init(sra, fd, devnm);
-	if (sra->sys_name[0] == 0) {
+	if (sysfs_init(sra, fd, devnm)) {
 		free(sra);
 		return NULL;
 	}
@@ -151,17 +175,11 @@ struct mdinfo *sysfs_read(int fd, char *devnm, unsigned long options)
 			goto abort;
 		sra->array.layout = strtoul(buf, NULL, 0);
 	}
-	if (options & GET_DISKS) {
+	if (options & (GET_DISKS|GET_STATE)) {
 		strcpy(base, "raid_disks");
 		if (load_sys(fname, buf, sizeof(buf)))
 			goto abort;
 		sra->array.raid_disks = strtoul(buf, NULL, 0);
-	}
-	if (options & GET_DEGRADED) {
-		strcpy(base, "degraded");
-		if (load_sys(fname, buf, sizeof(buf)))
-			goto abort;
-		sra->array.failed_disks = strtoul(buf, NULL, 0);
 	}
 	if (options & GET_COMPONENT) {
 		strcpy(base, "component_size");
@@ -236,11 +254,19 @@ struct mdinfo *sysfs_read(int fd, char *devnm, unsigned long options)
 
 	if (options & GET_ARRAY_STATE) {
 		strcpy(base, "array_state");
-		if (load_sys(fname, sra->sysfs_array_state,
-			     sizeof(sra->sysfs_array_state)))
+		if (load_sys(fname, buf, sizeof(buf)))
 			goto abort;
-	} else
-		sra->sysfs_array_state[0] = 0;
+		sra->array_state = map_name(sysfs_array_states, buf);
+	}
+
+	if (options & GET_CONSISTENCY_POLICY) {
+		strcpy(base, "consistency_policy");
+		if (load_sys(fname, buf, sizeof(buf)))
+			sra->consistency_policy = CONSISTENCY_POLICY_UNKNOWN;
+		else
+			sra->consistency_policy = map_name(consistency_policies,
+							   buf);
+	}
 
 	if (! (options & GET_DEVS))
 		return sra;
@@ -251,6 +277,9 @@ struct mdinfo *sysfs_read(int fd, char *devnm, unsigned long options)
 	if (!dir)
 		goto abort;
 	sra->array.spare_disks = 0;
+	sra->array.active_disks = 0;
+	sra->array.failed_disks = 0;
+	sra->array.working_disks = 0;
 
 	devp = &sra->devs;
 	sra->devs = NULL;
@@ -291,23 +320,28 @@ struct mdinfo *sysfs_read(int fd, char *devnm, unsigned long options)
 		dev->disk.raid_disk = strtoul(buf, &ep, 10);
 		if (*ep) dev->disk.raid_disk = -1;
 
+		sra->array.nr_disks++;
 		strcpy(dbase, "block/dev");
 		if (load_sys(fname, buf, sizeof(buf))) {
 			/* assume this is a stale reference to a hot
 			 * removed device
 			 */
-			free(dev);
-			continue;
+			if (!(options & GET_DEVS_ALL)) {
+				free(dev);
+				continue;
+			}
+		} else {
+			sscanf(buf, "%d:%d", &dev->disk.major, &dev->disk.minor);
 		}
-		sra->array.nr_disks++;
-		sscanf(buf, "%d:%d", &dev->disk.major, &dev->disk.minor);
 
-		/* special case check for block devices that can go 'offline' */
-		strcpy(dbase, "block/device/state");
-		if (load_sys(fname, buf, sizeof(buf)) == 0 &&
-		    strncmp(buf, "offline", 7) == 0) {
-			free(dev);
-			continue;
+		if (!(options & GET_DEVS_ALL)) {
+			/* special case check for block devices that can go 'offline' */
+			strcpy(dbase, "block/device/state");
+			if (load_sys(fname, buf, sizeof(buf)) == 0 &&
+			    strncmp(buf, "offline", 7) == 0) {
+				free(dev);
+				continue;
+			}
 		}
 
 		/* finally add this disk to the array */
@@ -337,12 +371,17 @@ struct mdinfo *sysfs_read(int fd, char *devnm, unsigned long options)
 			strcpy(dbase, "state");
 			if (load_sys(fname, buf, sizeof(buf)))
 				goto abort;
-			if (strstr(buf, "in_sync"))
-				dev->disk.state |= (1<<MD_DISK_SYNC);
 			if (strstr(buf, "faulty"))
 				dev->disk.state |= (1<<MD_DISK_FAULTY);
-			if (dev->disk.state == 0)
-				sra->array.spare_disks++;
+			else {
+				sra->array.working_disks++;
+				if (strstr(buf, "in_sync")) {
+					dev->disk.state |= (1<<MD_DISK_SYNC);
+					sra->array.active_disks++;
+				}
+				if (dev->disk.state == 0)
+					sra->array.spare_disks++;
+			}
 		}
 		if (options & GET_ERROR) {
 			strcpy(buf, "errors");
@@ -351,6 +390,11 @@ struct mdinfo *sysfs_read(int fd, char *devnm, unsigned long options)
 			dev->errors = strtoul(buf, NULL, 0);
 		}
 	}
+
+	if ((options & GET_STATE) && sra->array.raid_disks)
+		sra->array.failed_disks = sra->array.raid_disks -
+			sra->array.active_disks - sra->array.spare_disks;
+
 	closedir(dir);
 	return sra;
 
@@ -678,6 +722,16 @@ int sysfs_set_array(struct mdinfo *info, int vers)
 		 * once the reshape completes.
 		 */
 	}
+
+	if (info->consistency_policy == CONSISTENCY_POLICY_PPL) {
+		if (sysfs_set_str(info, NULL, "consistency_policy",
+				  map_num(consistency_policies,
+					  info->consistency_policy))) {
+			pr_err("This kernel does not support PPL. Falling back to consistency-policy=resync.\n");
+			info->consistency_policy = CONSISTENCY_POLICY_RESYNC;
+		}
+	}
+
 	return rv;
 }
 
@@ -709,6 +763,10 @@ int sysfs_add_disk(struct mdinfo *sra, struct mdinfo *sd, int resume)
 	rv = sysfs_set_num(sra, sd, "offset", sd->data_offset);
 	rv |= sysfs_set_num(sra, sd, "size", (sd->component_size+1) / 2);
 	if (sra->array.level != LEVEL_CONTAINER) {
+		if (sra->consistency_policy == CONSISTENCY_POLICY_PPL) {
+			rv |= sysfs_set_num(sra, sd, "ppl_sector", sd->ppl_sector);
+			rv |= sysfs_set_num(sra, sd, "ppl_size", sd->ppl_size);
+		}
 		if (sd->recovery_start == MaxSector)
 			/* This can correctly fail if array isn't started,
 			 * yet, so just ignore status for now.
@@ -953,4 +1011,157 @@ int sysfs_wait(int fd, int *msec)
 			  - start.tv_usec/1000) + 1;
 	}
 	return n;
+}
+
+int sysfs_rules_apply_check(const struct mdinfo *sra,
+			    const struct sysfs_entry *ent)
+{
+	/* Check whether parameter is regular file,
+	 * exists and is under specified directory.
+	 */
+	char fname[MAX_SYSFS_PATH_LEN];
+	char dname[MAX_SYSFS_PATH_LEN];
+	char resolved_path[PATH_MAX];
+	char resolved_dir[PATH_MAX];
+	int result;
+
+	if (sra == NULL || ent == NULL)
+		return -1;
+
+	result = snprintf(dname, MAX_SYSFS_PATH_LEN,
+			  "/sys/block/%s/md/", sra->sys_name);
+	if (result < 0 || result >= MAX_SYSFS_PATH_LEN)
+		return -1;
+
+	result = snprintf(fname, MAX_SYSFS_PATH_LEN,
+			  "%s/%s", dname, ent->name);
+	if (result < 0 || result >= MAX_SYSFS_PATH_LEN)
+		return -1;
+
+	if (realpath(fname, resolved_path) == NULL ||
+	    realpath(dname, resolved_dir) == NULL)
+		return -1;
+
+	if (strncmp(resolved_dir, resolved_path,
+		    strnlen(resolved_dir, PATH_MAX)) != 0)
+		return -1;
+
+	return 0;
+}
+
+static struct dev_sysfs_rule *sysfs_rules;
+
+void sysfs_rules_apply(char *devnm, struct mdinfo *dev)
+{
+	struct dev_sysfs_rule *rules = sysfs_rules;
+
+	while (rules) {
+		struct sysfs_entry *ent = rules->entry;
+		int match  = 0;
+
+		if (!rules->uuid_set) {
+			if (rules->devname)
+				match = strcmp(devnm, rules->devname) == 0;
+		} else {
+			match = memcmp(dev->uuid, rules->uuid,
+				       sizeof(int[4])) == 0;
+		}
+
+		while (match && ent) {
+			if (sysfs_rules_apply_check(dev, ent) < 0)
+				pr_err("SYSFS: failed to write '%s' to '%s'\n",
+					ent->value, ent->name);
+			else
+				sysfs_set_str(dev, NULL, ent->name, ent->value);
+			ent = ent->next;
+		}
+		rules = rules->next;
+	}
+}
+
+static void sysfs_rule_free(struct dev_sysfs_rule *rule)
+{
+	struct sysfs_entry *entry;
+
+	while (rule) {
+		struct dev_sysfs_rule *tmp = rule->next;
+
+		entry = rule->entry;
+		while (entry) {
+			struct sysfs_entry *tmp = entry->next;
+
+			free(entry->name);
+			free(entry->value);
+			free(entry);
+			entry = tmp;
+		}
+
+		if (rule->devname)
+			free(rule->devname);
+		free(rule);
+		rule = tmp;
+	}
+}
+
+void sysfsline(char *line)
+{
+	struct dev_sysfs_rule *sr;
+	char *w;
+
+	sr = xcalloc(1, sizeof(*sr));
+	for (w = dl_next(line); w != line ; w = dl_next(w)) {
+		if (strncasecmp(w, "name=", 5) == 0) {
+			char *devname = w + 5;
+
+			if (strncmp(devname, "/dev/md/", 8) == 0) {
+				if (sr->devname)
+					pr_err("Only give one device per SYSFS line: %s\n",
+						devname);
+				else
+					sr->devname = xstrdup(devname);
+			} else {
+				pr_err("%s is an invalid name for an md device - ignored.\n",
+				       devname);
+			}
+		} else if (strncasecmp(w, "uuid=", 5) == 0) {
+			char *uuid = w + 5;
+
+			if (sr->uuid_set) {
+				pr_err("Only give one uuid per SYSFS line: %s\n",
+					uuid);
+			} else {
+				if (parse_uuid(w + 5, sr->uuid) &&
+				    memcmp(sr->uuid, uuid_zero,
+					   sizeof(int[4])) != 0)
+					sr->uuid_set = 1;
+				else
+					pr_err("Invalid uuid: %s\n", uuid);
+			}
+		} else {
+			struct sysfs_entry *prop;
+
+			char *sep = strchr(w, '=');
+
+			if (sep == NULL || *(sep + 1) == 0) {
+				pr_err("Cannot parse \"%s\" - ignoring.\n", w);
+				continue;
+			}
+
+			prop = xmalloc(sizeof(*prop));
+			prop->value = xstrdup(sep + 1);
+			*sep = 0;
+			prop->name = xstrdup(w);
+			prop->next = sr->entry;
+			sr->entry = prop;
+		}
+	}
+
+	if (!sr->devname && !sr->uuid_set) {
+		pr_err("Device name not found in sysfs config entry - ignoring.\n");
+		sysfs_rule_free(sr);
+		return;
+	}
+
+	sr->next = sysfs_rules;
+	sysfs_rules = sr;
 }

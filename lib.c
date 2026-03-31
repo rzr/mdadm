@@ -25,6 +25,18 @@
 #include	"mdadm.h"
 #include	"dlink.h"
 #include	<ctype.h>
+#include	<limits.h>
+
+bool is_dev_alive(char *path)
+{
+	if (!path)
+		return false;
+
+	if (access(path, R_OK) == 0)
+		return true;
+
+	return false;
+}
 
 /* This fill contains various 'library' style function.  They
  * have no dependency on anything outside this file.
@@ -61,7 +73,7 @@ int get_mdp_major(void)
 	return mdp_major;
 }
 
-char *devid2kname(int devid)
+char *devid2kname(dev_t devid)
 {
 	char path[30];
 	char link[PATH_MAX];
@@ -73,8 +85,7 @@ char *devid2kname(int devid)
 	 * /sys/dev/block/%d:%d link which must look like
 	 * and take the last component.
 	 */
-	sprintf(path, "/sys/dev/block/%d:%d", major(devid),
-		minor(devid));
+	sprintf(path, "/sys/dev/block/%d:%d", major(devid), minor(devid));
 	n = readlink(path, link, sizeof(link) - 1);
 	if (n > 0) {
 		link[n] = 0;
@@ -161,6 +172,35 @@ char *fd2devnm(int fd)
 		return stat2devnm(&stb);
 
 	return NULL;
+}
+
+/* When we create a new array, we don't want the content to
+ * be immediately examined by udev - it is probably meaningless.
+ * So create /run/mdadm/creating-mdXXX and expect that a udev
+ * rule will noticed this and act accordingly.
+ */
+static char block_path[] = "/run/mdadm/creating-%s";
+static char *unblock_path = NULL;
+void udev_block(char *devnm)
+{
+	int fd;
+	char *path = NULL;
+
+	xasprintf(&path, block_path, devnm);
+	fd = open(path, O_CREAT|O_RDWR, 0600);
+	if (fd >= 0) {
+		close(fd);
+		unblock_path = path;
+	} else
+		free(path);
+}
+
+void udev_unblock(void)
+{
+	if (unblock_path)
+		unlink(unblock_path);
+	free(unblock_path);
+	unblock_path = NULL;
 }
 
 /*
@@ -505,4 +545,31 @@ void free_line(char *line)
 		dl_free(w);
 	}
 	dl_free(line);
+}
+
+/**
+ * parse_num() - Parse int from string.
+ * @dest: Pointer to destination.
+ * @num: Pointer to string that is going to be parsed.
+ *
+ * If string contains anything after a number, error code is returned.
+ * The same happens when number is bigger than INT_MAX or smaller than 0.
+ * Writes to destination only if successfully read the number.
+ *
+ * Return: 0 on success, 1 otherwise.
+ */
+int parse_num(int *dest, char *num)
+{
+	char *c = NULL;
+	long temp;
+
+	if (!num)
+		return 1;
+
+	errno = 0;
+	temp = strtol(num, &c, 10);
+	if (temp < 0 || temp > INT_MAX || *c || errno != 0 || num == c)
+		return 1;
+	*dest = temp;
+	return 0;
 }

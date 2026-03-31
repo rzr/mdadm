@@ -26,7 +26,7 @@
 
 static char *array_states[] = {
 	"clear", "inactive", "suspended", "readonly", "read-auto",
-	"clean", "active", "write-pending", "active-idle", NULL };
+	"clean", "active", "write-pending", "active-idle", "broken", NULL };
 static char *sync_actions[] = {
 	"idle", "reshape", "resync", "recover", "check", "repair", NULL
 };
@@ -476,7 +476,7 @@ static int read_and_act(struct active_array *a, fd_set *fds)
 		a->next_state = clean;
 		ret |= ARRAY_DIRTY;
 	}
-	if (a->curr_state == clean) {
+	if ((a->curr_state == clean) || (a->curr_state == broken)) {
 		a->container->ss->set_array_state(a, 1);
 	}
 	if (a->curr_state == active ||
@@ -576,8 +576,8 @@ static int read_and_act(struct active_array *a, fd_set *fds)
 		a->last_checkpoint = sync_completed;
 		a->container->ss->set_array_state(a, a->curr_state <= clean);
 	} else if ((a->curr_action == idle && a->prev_action == reshape) ||
-		   (a->curr_action == reshape
-		    && sync_completed > a->last_checkpoint) ) {
+		   (a->curr_action == reshape &&
+		    sync_completed > a->last_checkpoint)) {
 		/* Reshape has progressed or completed so we need to
 		 * update the array state - and possibly the array size
 		 */

@@ -1,17 +1,7 @@
-From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
-Date: Tue, 31 Mar 2026 14:50:49 +0200
-Subject: mdadm-2.5.2-static
-
----
- Makefile | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 514e4f2..8042845 100644
---- a/Makefile
-+++ b/Makefile
-@@ -239,16 +239,16 @@ install : mdadm mdmon install-man install-udev
- 	$(INSTALL) -D $(STRIP) -m 755 mdmon $(DESTDIR)$(BINDIR)/mdmon
+--- mdadm-3.2.1/Makefile.static	2021-01-11 15:46:47.292126848 +0800
++++ mdadm-3.2.1/Makefile	2021-01-11 15:46:10.720192519 +0800
+@@ -248,16 +248,16 @@
+ install : install-bin install-man install-udev
  
  install-static : mdadm.static install-man
 -	$(INSTALL) -D $(STRIP) -m 755 mdadm.static $(DESTDIR)$(BINDIR)/mdadm

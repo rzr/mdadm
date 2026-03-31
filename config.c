@@ -80,7 +80,8 @@ char DefaultAltConfFile[] = CONFFILE2;
 char DefaultAltConfDir[] = CONFFILE2 ".d";
 
 enum linetype { Devices, Array, Mailaddr, Mailfrom, Program, CreateDev,
-		Homehost, HomeCluster, AutoMode, Policy, PartPolicy, LTEnd };
+		Homehost, HomeCluster, AutoMode, Policy, PartPolicy, Sysfs,
+		MonitorDelay, LTEnd };
 char *keywords[] = {
 	[Devices]  = "devices",
 	[Array]    = "array",
@@ -93,6 +94,8 @@ char *keywords[] = {
 	[AutoMode] = "auto",
 	[Policy]   = "policy",
 	[PartPolicy]="part-policy",
+	[Sysfs]    = "sysfs",
+	[MonitorDelay] = "monitordelay",
 	[LTEnd]    = NULL
 };
 
@@ -181,9 +184,10 @@ struct mddev_dev *load_containers(void)
 			}
 			d->next = rv;
 			rv = d;
+			map_free(map);
+			map = NULL;
 		}
 	free_mdstat(mdstat);
-	map_free(map);
 
 	return rv;
 }
@@ -585,6 +589,17 @@ void homeclusterline(char *line)
 	}
 }
 
+static int monitor_delay;
+void monitordelayline(char *line)
+{
+	char *w;
+
+	for (w = dl_next(line); w != line; w = dl_next(w)) {
+		if (monitor_delay == 0)
+			monitor_delay = strtol(w, NULL, 10);
+	}
+}
+
 char auto_yes[] = "yes";
 char auto_no[] = "no";
 char auto_homehost[] = "homehost";
@@ -763,6 +778,12 @@ void conf_file(FILE *f)
 		case PartPolicy:
 			policyline(line, rule_part);
 			break;
+		case Sysfs:
+			sysfsline(line);
+			break;
+		case MonitorDelay:
+			monitordelayline(line);
+			break;
 		default:
 			pr_err("Unknown keyword %s\n", line);
 		}
@@ -917,6 +938,12 @@ char *conf_get_homecluster(void)
 {
 	load_conffile();
 	return home_cluster;
+}
+
+int conf_get_monitor_delay(void)
+{
+	load_conffile();
+	return monitor_delay;
 }
 
 struct createinfo *conf_get_create_info(void)
@@ -1118,8 +1145,8 @@ struct mddev_ident *conf_match(struct supertype *st,
 	match = NULL;
 	for (; array_list; array_list = array_list->next) {
 		if (array_list->uuid_set &&
-		    same_uuid(array_list->uuid, info->uuid, st->ss->swapuuid)
-		    == 0) {
+		    same_uuid(array_list->uuid, info->uuid,
+			      st->ss->swapuuid) == 0) {
 			if (verbose >= 2 && array_list->devname)
 				pr_err("UUID differs from %s.\n",
 				       array_list->devname);

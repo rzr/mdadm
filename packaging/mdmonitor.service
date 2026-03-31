@@ -1,14 +1,12 @@
 [Unit]
 Description=Software RAID monitoring and management
-After=syslog.target
 ConditionPathExists=/etc/mdadm.conf
 
 [Service]
 Type=forking
-PIDFile=/var/run/mdadm/mdadm.pid
-Environment= MDADM_MONITOR_ARGS=--scan
+PIDFile=/run/mdadm/mdadm.pid
 EnvironmentFile=-/etc/sysconfig/mdmonitor
-ExecStart=/sbin/mdadm --monitor $MDADM_MONITOR_ARGS -f --pid-file=/var/run/mdadm/mdadm.pid
+ExecStart=/sbin/mdadm --monitor --scan --syslog -f --pid-file=/run/mdadm/mdadm.pid
 
 [Install]
 WantedBy=multi-user.target
