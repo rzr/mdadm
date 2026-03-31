@@ -1,4 +1,3 @@
-From 35aa44c549290e22f285896684c704acb53b7717 Mon Sep 17 00:00:00 2001
 From: Mateusz Kusiak <mateusz.kusiak@intel.com>
 Date: Mon, 2 Jan 2023 09:35:18 +0100
 Subject: [PATCH 70/83] super-ddf: Remove update_super_ddf.
@@ -10,11 +9,11 @@ Remove update_super_dff().
 Signed-off-by: Mateusz Kusiak <mateusz.kusiak@intel.com>
 Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 ---
- super-ddf.c | 70 -----------------------------------------------------
+ super-ddf.c | 70 -------------------------------------------------------------
  1 file changed, 70 deletions(-)
 
 diff --git a/super-ddf.c b/super-ddf.c
-index 9d1e3b94..309812df 100644
+index 9d1e3b9..309812d 100644
 --- a/super-ddf.c
 +++ b/super-ddf.c
 @@ -2139,75 +2139,6 @@ static void getinfo_super_ddf_bvd(struct supertype *st, struct mdinfo *info, cha
@@ -101,6 +100,3 @@ index 9d1e3b94..309812df 100644
  
  	.avail_size	= avail_size_ddf,
  
--- 
-2.38.1
-
