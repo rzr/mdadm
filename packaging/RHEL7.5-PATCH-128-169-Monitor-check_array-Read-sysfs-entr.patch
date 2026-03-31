@@ -1,4 +1,3 @@
-From aed5f5c34c2b248876b874898d0b3bf65b6cca53 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 9 May 2017 16:49:33 -0400
 Subject: [RHEL7.5 PATCH 128/169] Monitor/check_array: Read sysfs entry
@@ -74,6 +73,3 @@ index bb3a2c4..75aea91 100644
  	if (fd > 0)
  		close(fd);
  	return retval;
--- 
-2.7.4
-
