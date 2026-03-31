@@ -1,8 +1,7 @@
-From aa3131183661955de112fa7d9824207de63d9fa5 Mon Sep 17 00:00:00 2001
 From: Gioh Kim <gi-oh.kim@profitbricks.com>
 Date: Wed, 29 Mar 2017 11:40:33 +0200
-Subject: [RHEL7.5 PATCH 032/169] super1: replace hard-coded values with
- bit definitions
+Subject: [RHEL7.5 PATCH 032/169] super1: replace hard-coded values with bit
+ definitions
 
 Some hard-coded values for disk status are replaced
 with bit definitions.
@@ -41,6 +40,3 @@ index e76f777..6f91611 100644
  		*rp = MD_DISK_ROLE_SPARE;
  	else
  		*rp = MD_DISK_ROLE_FAULTY;
--- 
-2.7.4
-
