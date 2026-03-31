@@ -1,4 +1,3 @@
-From dae131379f9fd82e2867aed25a3ff719f957e9a3 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Thu, 30 Mar 2017 16:52:37 -0400
 Subject: [RHEL7.5 PATCH 048/169] sysfs: Make sysfs_init() return an error
@@ -327,6 +326,3 @@ index 93ec3de..51deb23 100644
  		free(sra);
  		return NULL;
  	}
--- 
-2.7.4
-
