@@ -1,10 +1,9 @@
-From ea7a02a3294aae223e1329aed5da7f4aa3ac05c5 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Old=C5=99ich=20Jedli=C4=8Dka?= <oldium.pro@gmail.com>
+From: =?utf-8?b?T2xkxZlpY2ggSmVkbGnEjWth?= <oldium.pro@gmail.com>
 Date: Wed, 31 Aug 2022 19:57:29 +0200
 Subject: [PATCH 57/83] mdadm: added support for Intel Alderlake RST on VMD
  platform
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 Alderlake RST on VMD uses RstVmdV UEFI variable name, so detect it.
@@ -17,7 +16,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 13 insertions(+), 5 deletions(-)
 
 diff --git a/platform-intel.c b/platform-intel.c
-index 5a8729e7..757f0b1b 100644
+index 5a8729e..757f0b1 100644
 --- a/platform-intel.c
 +++ b/platform-intel.c
 @@ -512,7 +512,8 @@ static const struct imsm_orom *find_imsm_hba_orom(struct sys_dev *hba)
@@ -59,6 +58,3 @@ index 5a8729e7..757f0b1b 100644
  	default:
  		return NULL;
  	}
--- 
-2.38.1
-
