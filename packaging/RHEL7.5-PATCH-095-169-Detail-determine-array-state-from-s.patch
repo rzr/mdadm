@@ -1,4 +1,3 @@
-From a4dcdb23ea639d14e92d1c86336de7ad505b2f7d Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 25 Apr 2017 11:40:27 -0400
 Subject: [RHEL7.5 PATCH 095/169] Detail: determine array state from sysfs
@@ -49,6 +48,3 @@ index 91c5a98..eb69276 100644
  	} else {
  		pr_err("cannot get array detail for %s: %s\n",
  		       dev, strerror(errno));
--- 
-2.7.4
-
