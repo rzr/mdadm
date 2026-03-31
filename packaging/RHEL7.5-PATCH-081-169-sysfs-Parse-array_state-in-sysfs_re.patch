@@ -1,4 +1,3 @@
-From 5e4ca8bb82e98400c9258cb3d7e4d030576f21df Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Wed, 19 Apr 2017 23:27:58 -0400
 Subject: [RHEL7.5 PATCH 081/169] sysfs: Parse array_state in sysfs_read()
@@ -111,6 +110,3 @@ index 51deb23..c6df9b0 100644
  
  	if (options & GET_CONSISTENCY_POLICY) {
  		strcpy(base, "consistency_policy");
--- 
-2.7.4
-
