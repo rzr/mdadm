@@ -1,4 +1,3 @@
-From 46a533a90c01b0492577c61d4e65de2ac4bf220c Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 11 Apr 2017 14:25:24 -0400
 Subject: [RHEL7.5 PATCH 071/169] super1: Clean up various style abuses
@@ -904,6 +903,3 @@ index 4db4dff..2fcb814 100644
  
  		if (bm_space_per_node * st->nodes > total_bm_space) {
  			pr_err("Warning: The max num of nodes can't exceed %llu\n",
--- 
-2.7.4
-
