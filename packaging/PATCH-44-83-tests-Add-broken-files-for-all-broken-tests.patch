@@ -1,4 +1,3 @@
-From daa86d6634761796ada1f535c13e47fdd3cc95eb Mon Sep 17 00:00:00 2001
 From: Logan Gunthorpe <logang@deltatee.com>
 Date: Wed, 22 Jun 2022 14:25:19 -0600
 Subject: [PATCH 44/83] tests: Add broken files for all broken tests
@@ -22,30 +21,30 @@ These annotations were done with the kernel currently in md/md-next:
 Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
 Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 ---
- tests/01r5integ.broken                     |  7 ++++
- tests/01raid6integ.broken                  |  7 ++++
- tests/04r5swap.broken                      |  7 ++++
- tests/07autoassemble.broken                |  8 ++++
- tests/07autodetect.broken                  |  5 +++
- tests/07changelevelintr.broken             |  9 +++++
- tests/07changelevels.broken                |  9 +++++
- tests/07reshape5intr.broken                | 45 ++++++++++++++++++++++
- tests/07revert-grow.broken                 | 31 +++++++++++++++
- tests/07revert-shrink.broken               |  9 +++++
- tests/07testreshape5.broken                | 12 ++++++
- tests/09imsm-assemble.broken               |  6 +++
- tests/09imsm-create-fail-rebuild.broken    |  5 +++
- tests/09imsm-overlap.broken                |  7 ++++
- tests/10ddf-assemble-missing.broken        |  6 +++
- tests/10ddf-fail-create-race.broken        |  7 ++++
- tests/10ddf-fail-two-spares.broken         |  5 +++
- tests/10ddf-incremental-wrong-order.broken |  9 +++++
- tests/14imsm-r1_2d-grow-r1_3d.broken       |  5 +++
- tests/14imsm-r1_2d-takeover-r0_2d.broken   |  6 +++
- tests/18imsm-r10_4d-takeover-r0_2d.broken  |  5 +++
- tests/18imsm-r1_2d-takeover-r0_1d.broken   |  6 +++
- tests/19raid6auto-repair.broken            |  5 +++
- tests/19raid6repair.broken                 |  5 +++
+ tests/01r5integ.broken                     |  7 +++++
+ tests/01raid6integ.broken                  |  7 +++++
+ tests/04r5swap.broken                      |  7 +++++
+ tests/07autoassemble.broken                |  8 ++++++
+ tests/07autodetect.broken                  |  5 ++++
+ tests/07changelevelintr.broken             |  9 ++++++
+ tests/07changelevels.broken                |  9 ++++++
+ tests/07reshape5intr.broken                | 45 ++++++++++++++++++++++++++++++
+ tests/07revert-grow.broken                 | 31 ++++++++++++++++++++
+ tests/07revert-shrink.broken               |  9 ++++++
+ tests/07testreshape5.broken                | 12 ++++++++
+ tests/09imsm-assemble.broken               |  6 ++++
+ tests/09imsm-create-fail-rebuild.broken    |  5 ++++
+ tests/09imsm-overlap.broken                |  7 +++++
+ tests/10ddf-assemble-missing.broken        |  6 ++++
+ tests/10ddf-fail-create-race.broken        |  7 +++++
+ tests/10ddf-fail-two-spares.broken         |  5 ++++
+ tests/10ddf-incremental-wrong-order.broken |  9 ++++++
+ tests/14imsm-r1_2d-grow-r1_3d.broken       |  5 ++++
+ tests/14imsm-r1_2d-takeover-r0_2d.broken   |  6 ++++
+ tests/18imsm-r10_4d-takeover-r0_2d.broken  |  5 ++++
+ tests/18imsm-r1_2d-takeover-r0_1d.broken   |  6 ++++
+ tests/19raid6auto-repair.broken            |  5 ++++
+ tests/19raid6repair.broken                 |  5 ++++
  24 files changed, 226 insertions(+)
  create mode 100644 tests/01r5integ.broken
  create mode 100644 tests/01raid6integ.broken
@@ -74,7 +73,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 
 diff --git a/tests/01r5integ.broken b/tests/01r5integ.broken
 new file mode 100644
-index 00000000..20737637
+index 0000000..2073763
 --- /dev/null
 +++ b/tests/01r5integ.broken
 @@ -0,0 +1,7 @@
@@ -87,7 +86,7 @@ index 00000000..20737637
 +    missing
 diff --git a/tests/01raid6integ.broken b/tests/01raid6integ.broken
 new file mode 100644
-index 00000000..1df735f0
+index 0000000..1df735f
 --- /dev/null
 +++ b/tests/01raid6integ.broken
 @@ -0,0 +1,7 @@
@@ -100,7 +99,7 @@ index 00000000..1df735f0
 +    /dev/loop3 missing
 diff --git a/tests/04r5swap.broken b/tests/04r5swap.broken
 new file mode 100644
-index 00000000..e38987db
+index 0000000..e38987d
 --- /dev/null
 +++ b/tests/04r5swap.broken
 @@ -0,0 +1,7 @@
@@ -113,7 +112,7 @@ index 00000000..e38987db
 +   ERROR: no recovery happening
 diff --git a/tests/07autoassemble.broken b/tests/07autoassemble.broken
 new file mode 100644
-index 00000000..8be09407
+index 0000000..8be0940
 --- /dev/null
 +++ b/tests/07autoassemble.broken
 @@ -0,0 +1,8 @@
@@ -127,7 +126,7 @@ index 00000000..8be09407
 +  mdadm: /dev/md/2 is busy - skipping
 diff --git a/tests/07autodetect.broken b/tests/07autodetect.broken
 new file mode 100644
-index 00000000..294954a1
+index 0000000..294954a
 --- /dev/null
 +++ b/tests/07autodetect.broken
 @@ -0,0 +1,5 @@
@@ -138,7 +137,7 @@ index 00000000..294954a1
 +    ERROR: no resync happening
 diff --git a/tests/07changelevelintr.broken b/tests/07changelevelintr.broken
 new file mode 100644
-index 00000000..284b4906
+index 0000000..284b490
 --- /dev/null
 +++ b/tests/07changelevelintr.broken
 @@ -0,0 +1,9 @@
@@ -153,7 +152,7 @@ index 00000000..284b4906
 +  ERROR: no reshape happening
 diff --git a/tests/07changelevels.broken b/tests/07changelevels.broken
 new file mode 100644
-index 00000000..9b930d93
+index 0000000..9b930d9
 --- /dev/null
 +++ b/tests/07changelevels.broken
 @@ -0,0 +1,9 @@
@@ -168,7 +167,7 @@ index 00000000..9b930d93
 +    ERROR: /dev/md0 isn't a block device.
 diff --git a/tests/07reshape5intr.broken b/tests/07reshape5intr.broken
 new file mode 100644
-index 00000000..efe52a66
+index 0000000..efe52a6
 --- /dev/null
 +++ b/tests/07reshape5intr.broken
 @@ -0,0 +1,45 @@
@@ -219,7 +218,7 @@ index 00000000..efe52a66
 +      entry_SYSCALL_64_after_hwframe+0x44/0xae
 diff --git a/tests/07revert-grow.broken b/tests/07revert-grow.broken
 new file mode 100644
-index 00000000..9b6db86f
+index 0000000..9b6db86
 --- /dev/null
 +++ b/tests/07revert-grow.broken
 @@ -0,0 +1,31 @@
@@ -256,7 +255,7 @@ index 00000000..9b6db86f
 +    ERROR: active raid5 not found
 diff --git a/tests/07revert-shrink.broken b/tests/07revert-shrink.broken
 new file mode 100644
-index 00000000..c33c39ec
+index 0000000..c33c39e
 --- /dev/null
 +++ b/tests/07revert-shrink.broken
 @@ -0,0 +1,9 @@
@@ -271,7 +270,7 @@ index 00000000..c33c39ec
 +    ERROR: active raid5 not found
 diff --git a/tests/07testreshape5.broken b/tests/07testreshape5.broken
 new file mode 100644
-index 00000000..a8ce03e4
+index 0000000..a8ce03e
 --- /dev/null
 +++ b/tests/07testreshape5.broken
 @@ -0,0 +1,12 @@
@@ -289,7 +288,7 @@ index 00000000..a8ce03e4
 +    ++ exit 2
 diff --git a/tests/09imsm-assemble.broken b/tests/09imsm-assemble.broken
 new file mode 100644
-index 00000000..a6d4d5cf
+index 0000000..a6d4d5c
 --- /dev/null
 +++ b/tests/09imsm-assemble.broken
 @@ -0,0 +1,6 @@
@@ -301,7 +300,7 @@ index 00000000..a6d4d5cf
 +    /dev/loop2 removal from /dev/md/container should have succeeded
 diff --git a/tests/09imsm-create-fail-rebuild.broken b/tests/09imsm-create-fail-rebuild.broken
 new file mode 100644
-index 00000000..40c4b294
+index 0000000..40c4b29
 --- /dev/null
 +++ b/tests/09imsm-create-fail-rebuild.broken
 @@ -0,0 +1,5 @@
@@ -312,7 +311,7 @@ index 00000000..40c4b294
 +    **Error**: Array size mismatch - expected 3072, actual 16384
 diff --git a/tests/09imsm-overlap.broken b/tests/09imsm-overlap.broken
 new file mode 100644
-index 00000000..e7ccab76
+index 0000000..e7ccab7
 --- /dev/null
 +++ b/tests/09imsm-overlap.broken
 @@ -0,0 +1,7 @@
@@ -325,7 +324,7 @@ index 00000000..e7ccab76
 +    /dev/md/vol3 failed check
 diff --git a/tests/10ddf-assemble-missing.broken b/tests/10ddf-assemble-missing.broken
 new file mode 100644
-index 00000000..bfd8d103
+index 0000000..bfd8d10
 --- /dev/null
 +++ b/tests/10ddf-assemble-missing.broken
 @@ -0,0 +1,6 @@
@@ -337,7 +336,7 @@ index 00000000..bfd8d103
 +    ERROR: unexpected number of online disks on /dev/loop10
 diff --git a/tests/10ddf-fail-create-race.broken b/tests/10ddf-fail-create-race.broken
 new file mode 100644
-index 00000000..6c0df023
+index 0000000..6c0df02
 --- /dev/null
 +++ b/tests/10ddf-fail-create-race.broken
 @@ -0,0 +1,7 @@
@@ -350,7 +349,7 @@ index 00000000..6c0df023
 +    ERROR: disk 0 not marked as failed in meta data
 diff --git a/tests/10ddf-fail-two-spares.broken b/tests/10ddf-fail-two-spares.broken
 new file mode 100644
-index 00000000..eeea56d9
+index 0000000..eeea56d
 --- /dev/null
 +++ b/tests/10ddf-fail-two-spares.broken
 @@ -0,0 +1,5 @@
@@ -361,7 +360,7 @@ index 00000000..eeea56d9
 +   ERROR: /dev/md/vol1 should be optimal in meta data
 diff --git a/tests/10ddf-incremental-wrong-order.broken b/tests/10ddf-incremental-wrong-order.broken
 new file mode 100644
-index 00000000..a5af3bab
+index 0000000..a5af3ba
 --- /dev/null
 +++ b/tests/10ddf-incremental-wrong-order.broken
 @@ -0,0 +1,9 @@
@@ -376,7 +375,7 @@ index 00000000..a5af3bab
 +    ERROR: sha1sum of /dev/md/vol0 has changed
 diff --git a/tests/14imsm-r1_2d-grow-r1_3d.broken b/tests/14imsm-r1_2d-grow-r1_3d.broken
 new file mode 100644
-index 00000000..4ef1d406
+index 0000000..4ef1d40
 --- /dev/null
 +++ b/tests/14imsm-r1_2d-grow-r1_3d.broken
 @@ -0,0 +1,5 @@
@@ -387,7 +386,7 @@ index 00000000..4ef1d406
 +    mdadm/tests/func.sh: line 325: dvsize/chunk: division by 0 (error token is "chunk")
 diff --git a/tests/14imsm-r1_2d-takeover-r0_2d.broken b/tests/14imsm-r1_2d-takeover-r0_2d.broken
 new file mode 100644
-index 00000000..89cd4e57
+index 0000000..89cd4e5
 --- /dev/null
 +++ b/tests/14imsm-r1_2d-takeover-r0_2d.broken
 @@ -0,0 +1,6 @@
@@ -399,7 +398,7 @@ index 00000000..89cd4e57
 +		is "chunk")
 diff --git a/tests/18imsm-r10_4d-takeover-r0_2d.broken b/tests/18imsm-r10_4d-takeover-r0_2d.broken
 new file mode 100644
-index 00000000..a27399f5
+index 0000000..a27399f
 --- /dev/null
 +++ b/tests/18imsm-r10_4d-takeover-r0_2d.broken
 @@ -0,0 +1,5 @@
@@ -410,7 +409,7 @@ index 00000000..a27399f5
 +   ERROR:  size is wrong for /dev/md/vol0: 2 * 5120 (chunk=128) = 20480, not 0
 diff --git a/tests/18imsm-r1_2d-takeover-r0_1d.broken b/tests/18imsm-r1_2d-takeover-r0_1d.broken
 new file mode 100644
-index 00000000..aa1982e6
+index 0000000..aa1982e
 --- /dev/null
 +++ b/tests/18imsm-r1_2d-takeover-r0_1d.broken
 @@ -0,0 +1,6 @@
@@ -422,7 +421,7 @@ index 00000000..aa1982e6
 +			is "chunk")
 diff --git a/tests/19raid6auto-repair.broken b/tests/19raid6auto-repair.broken
 new file mode 100644
-index 00000000..e91a1425
+index 0000000..e91a142
 --- /dev/null
 +++ b/tests/19raid6auto-repair.broken
 @@ -0,0 +1,5 @@
@@ -433,7 +432,7 @@ index 00000000..e91a1425
 +    "should detect errors"
 diff --git a/tests/19raid6repair.broken b/tests/19raid6repair.broken
 new file mode 100644
-index 00000000..e91a1425
+index 0000000..e91a142
 --- /dev/null
 +++ b/tests/19raid6repair.broken
 @@ -0,0 +1,5 @@
@@ -442,6 +441,3 @@ index 00000000..e91a1425
 +Fails with:
 +
 +    "should detect errors"
--- 
-2.38.1
-
