@@ -1,8 +1,6 @@
-From 72362f18aee5adedb405fe61c324604184d74555 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Thu, 11 May 2017 16:44:19 -0400
-Subject: [RHEL7.5 PATCH 138/169] Monitor: mailfrom is initialized
- correctly
+Subject: [RHEL7.5 PATCH 138/169] Monitor: mailfrom is initialized correctly
 
 Remove gratituous variable initialization.
 
@@ -24,6 +22,3 @@ index a4afe75..83a6d10 100644
  	struct alert_info info;
  	struct mddev_ident *mdlist;
  
--- 
-2.7.4
-
