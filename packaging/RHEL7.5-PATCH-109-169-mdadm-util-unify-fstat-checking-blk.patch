@@ -1,8 +1,7 @@
-From 0a6bff09d41650f27136d56a0604c9af46b6f583 Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Thu, 4 May 2017 20:16:21 +0800
-Subject: [RHEL7.5 PATCH 109/169] mdadm/util: unify fstat checking blkdev
- into function
+Subject: [RHEL7.5 PATCH 109/169] mdadm/util: unify fstat checking blkdev into
+ function
 
 declare function fstat_is_blkdev() to integrate repeated fstat
 checking block device operations, it returns true/1 when it is
@@ -434,6 +433,3 @@ index c7585ac..a92faf8 100644
  int ask(char *mesg)
  {
  	char *add = "";
--- 
-2.7.4
-
