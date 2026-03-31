@@ -1,4 +1,3 @@
-From fdd015696c2e2a6b234a92af564aea44b62e6a0d Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.com>
 Date: Mon, 27 Mar 2017 14:36:56 +1100
 Subject: [RHEL7.5 PATCH 022/169] Introduce sys_hot_remove_disk()
@@ -69,6 +68,3 @@ index d09a7e2..b718531 100644
  int set_array_info(int mdfd, struct supertype *st, struct mdinfo *info)
  {
  	/* Initialise kernel's knowledge of array.
--- 
-2.7.4
-
