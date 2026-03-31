@@ -1,8 +1,7 @@
-From b9c9bd9bacaab701d5b3cb3e4b6cb02ea8d36e47 Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.com>
 Date: Thu, 20 Apr 2017 12:40:06 +1000
-Subject: [RHEL7.5 PATCH 089/169] Detail: ensure --export names are
- acceptable as shell variables.
+Subject: [RHEL7.5 PATCH 089/169] Detail: ensure --export names are acceptable
+ as shell variables.
 
 If an array contains a device which has a name that
 contains something other than alphnumerics and underscores,
@@ -64,6 +63,3 @@ index e40cd8f..91c5a98 100644
  			}
  		}
  		goto out;
--- 
-2.7.4
-
