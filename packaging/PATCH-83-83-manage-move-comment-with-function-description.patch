@@ -1,4 +1,3 @@
-From 36a707824eb1dafbb990f5daf1cbbe0e37dbbefb Mon Sep 17 00:00:00 2001
 From: Kinga Tanska <kinga.tanska@intel.com>
 Date: Thu, 5 Jan 2023 06:31:25 +0100
 Subject: [PATCH 83/83] manage: move comment with function description
@@ -10,11 +9,11 @@ Signed-off-by: Kinga Tanska <kinga.tanska@intel.com>
 Acked-by: Coly Li <colyli@suse.de>
 Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 ---
- Manage.c | 72 ++++++++++++++++++++++++++++++++++----------------------
+ Manage.c | 72 +++++++++++++++++++++++++++++++++++++++-------------------------
  1 file changed, 44 insertions(+), 28 deletions(-)
 
 diff --git a/Manage.c b/Manage.c
-index 6184d3f7..fde6aba3 100644
+index 6184d3f..fde6aba 100644
 --- a/Manage.c
 +++ b/Manage.c
 @@ -1327,38 +1327,54 @@ bool is_remove_safe(mdu_array_info_t *array, const int fd, char *devname, const
@@ -100,6 +99,3 @@ index 6184d3f7..fde6aba3 100644
  	mdu_array_info_t array;
  	unsigned long long array_size;
  	struct mddev_dev *dv;
--- 
-2.38.1
-
