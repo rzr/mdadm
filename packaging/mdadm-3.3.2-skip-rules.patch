@@ -1,6 +1,16 @@
---- mdadm/Makefile~	2017-09-19 11:09:05.788484060 +0800
-+++ mdadm/Makefile	2017-09-19 11:09:26.956482310 +0800
-@@ -257,7 +257,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:49 +0200
+Subject: mdadm-3.3.2-skip-rules
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 021d3ad..514e4f2 100644
+--- a/Makefile
++++ b/Makefile
+@@ -257,7 +257,7 @@ install-man: mdadm.8 md.4 mdadm.conf.5 mdmon.8
  	$(INSTALL) -D -m 644 mdadm.conf.5 $(DESTDIR)$(MAN5DIR)/mdadm.conf.5
  
  install-udev: udev-md-raid-arrays.rules udev-md-raid-assembly.rules udev-md-raid-creating.rules
