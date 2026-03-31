@@ -1,4 +1,3 @@
-From 2e10c46d0906b1a1ec40e8f5005ccb63125dcd9e Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.de>
 Date: Tue, 14 Mar 2023 11:06:25 +1100
 Subject: [PATCH 112/120] mdopen: always try create_named_array()
@@ -24,7 +23,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 1 insertion(+)
 
 diff --git a/mdopen.c b/mdopen.c
-index d18c9319..810f79a3 100644
+index d18c931..810f79a 100644
 --- a/mdopen.c
 +++ b/mdopen.c
 @@ -370,6 +370,7 @@ int create_mddev(char *dev, char *name, int autof, int trustworthy,
@@ -35,6 +34,3 @@ index d18c9319..810f79a3 100644
  	}
  
  	sprintf(devname, "/dev/%s", devnm);
--- 
-2.38.1
-
