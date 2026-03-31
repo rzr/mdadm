@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:47 +0200
+Subject: imsmppl-support
+
 commit 2432ce9b3235f34d00ef6c28ef6b624a32b85530
 Author: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date:   Wed Mar 29 11:54:17 2017 +0200
@@ -20,6 +24,14 @@ Date:   Wed Mar 29 11:54:17 2017 +0200
     
     Signed-off-by: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
     Signed-off-by: Jes Sorensen <Jes.Sorensen@gmail.com>
+---
+ Assemble.c    |  49 +++++++++++
+ Makefile      |   5 +-
+ md_p.h        |  25 ++++++
+ mdadm.h       |   6 ++
+ super-intel.c | 274 +++++++++++++++++++++++++++++++++++++++++++++++++++++-----
+ sysfs.c       |  14 +++
+ 6 files changed, 349 insertions(+), 24 deletions(-)
 
 diff --git a/Assemble.c b/Assemble.c
 index 3da0903..8e55b49 100644
