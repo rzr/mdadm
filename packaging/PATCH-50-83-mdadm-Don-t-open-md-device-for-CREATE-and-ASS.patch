@@ -1,4 +1,3 @@
-From 27ad4900501c615b7c6b266bf23948e5606dba53 Mon Sep 17 00:00:00 2001
 From: Logan Gunthorpe <logang@deltatee.com>
 Date: Wed, 27 Jul 2022 15:52:46 -0600
 Subject: [PATCH 50/83] mdadm: Don't open md device for CREATE and ASSEMBLE
@@ -54,7 +53,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  3 files changed, 33 insertions(+), 20 deletions(-)
 
 diff --git a/lib.c b/lib.c
-index 7e3e3d47..e395b28d 100644
+index 7e3e3d4..e395b28 100644
 --- a/lib.c
 +++ b/lib.c
 @@ -164,6 +164,18 @@ char *stat2devnm(struct stat *st)
@@ -77,7 +76,7 @@ index 7e3e3d47..e395b28d 100644
  {
  	struct stat stb;
 diff --git a/mdadm.c b/mdadm.c
-index 845e4466..972adb52 100644
+index 845e446..972adb5 100644
 --- a/mdadm.c
 +++ b/mdadm.c
 @@ -1329,6 +1329,9 @@ int main(int argc, char *argv[])
@@ -146,7 +145,7 @@ index 845e4466..972adb52 100644
  
  	if (s.raiddisks) {
 diff --git a/mdadm.h b/mdadm.h
-index adb7cdaa..8208b81e 100644
+index adb7cda..8208b81 100644
 --- a/mdadm.h
 +++ b/mdadm.h
 @@ -1672,6 +1672,7 @@ void *super1_make_v0(struct supertype *st, struct mdinfo *info, mdp_super_t *sb0
@@ -157,6 +156,3 @@ index adb7cdaa..8208b81e 100644
  extern char *fd2devnm(int fd);
  extern void udev_block(char *devnm);
  extern void udev_unblock(void);
--- 
-2.38.1
-
