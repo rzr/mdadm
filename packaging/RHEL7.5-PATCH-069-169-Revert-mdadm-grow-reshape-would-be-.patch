@@ -1,8 +1,7 @@
-From 2cfe6f7c646ebc25043f7607f5756edad0bc3071 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Tue, 11 Apr 2017 11:30:23 -0400
-Subject: [RHEL7.5 PATCH 069/169] Revert "mdadm/grow: reshape would be
- stuck from raid1 to raid5"
+Subject: [RHEL7.5 PATCH 069/169] Revert "mdadm/grow: reshape would be stuck
+ from raid1 to raid5"
 
 This reverts commit 5b2846684ef5172eccc432e3520b79efbc2abba5.
 
@@ -27,6 +26,3 @@ index 882bc0b..5c667d2 100644
  StandardInput=null
  StandardOutput=null
  StandardError=null
--- 
-2.7.4
-
