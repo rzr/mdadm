@@ -1,8 +1,7 @@
-From ee9dcf9549e8cbfeb51123812776cc87016c95b0 Mon Sep 17 00:00:00 2001
 From: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Date: Thu, 2 Feb 2023 12:27:02 +0100
-Subject: [PATCH 090/120] Add helpers to determine whether directories or files
- are soft links
+Subject: [PATCH 090/120] Add helpers to determine whether directories or
+ files are soft links
 
 Signed-off-by: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Acked-by: Coly Li <colyli@suse.de>
@@ -13,7 +12,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  2 files changed, 47 insertions(+)
 
 diff --git a/mdadm.h b/mdadm.h
-index 13f8b4cb..1674ce13 100644
+index 13f8b4c..1674ce1 100644
 --- a/mdadm.h
 +++ b/mdadm.h
 @@ -1777,6 +1777,8 @@ extern void set_dlm_hooks(void);
@@ -26,7 +25,7 @@ index 13f8b4cb..1674ce13 100644
  #define _ROUND_UP(val, base)	(((val) + (base) - 1) & ~(base - 1))
  #define ROUND_UP(val, base)	_ROUND_UP(val, (typeof(val))(base))
 diff --git a/util.c b/util.c
-index 8c7f3fd5..7fc881bf 100644
+index 8c7f3fd..7fc881b 100644
 --- a/util.c
 +++ b/util.c
 @@ -2401,3 +2401,48 @@ void sleep_for(unsigned int sec, long nsec, bool wake_after_interrupt)
@@ -78,6 +77,3 @@ index 8c7f3fd5..7fc881bf 100644
 +
 +	return true;
 +}
--- 
-2.38.1
-
