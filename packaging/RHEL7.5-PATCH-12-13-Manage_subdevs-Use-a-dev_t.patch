@@ -1,4 +1,3 @@
-From ffaf1a7eefc6167d7457d649e628c04ccee9a4dd Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Fri, 29 Sep 2017 18:08:01 -0400
 Subject: [RHEL7.5 PATCH 12/13] Manage_subdevs(): Use a dev_t
@@ -23,6 +22,3 @@ index 871d342..21536f5 100644
  		int rv;
  		int mj,mn;
  
--- 
-2.7.4
-
