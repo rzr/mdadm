@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:47 +0200
+Subject: support-consistency-policy1-change
+
 commit 860f11ed4d6a7bac6f2d698a30a13371c0aa7924
 Author: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date:   Wed Mar 29 11:54:20 2017 +0200
@@ -12,6 +16,13 @@ Date:   Wed Mar 29 11:54:20 2017 +0200
     
     Signed-off-by: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
     Signed-off-by: Jes Sorensen <Jes.Sorensen@gmail.com>
+---
+ Grow.c     | 172 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ ReadMe.c   |  46 +++++++++--------
+ mdadm.8.in |  18 ++++++-
+ mdadm.c    |   3 ++
+ mdadm.h    |   2 +
+ 5 files changed, 218 insertions(+), 23 deletions(-)
 
 diff --git a/Grow.c b/Grow.c
 index a849012..b86b53e 100755
