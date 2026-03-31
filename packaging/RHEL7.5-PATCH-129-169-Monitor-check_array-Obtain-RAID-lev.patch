@@ -1,8 +1,7 @@
-From 48bc2ade86db576036375184774a3ebadf6a22e3 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 9 May 2017 16:52:44 -0400
-Subject: [RHEL7.5 PATCH 129/169] Monitor/check_array: Obtain RAID level
- from syfs
+Subject: [RHEL7.5 PATCH 129/169] Monitor/check_array: Obtain RAID level from
+ syfs
 
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
 ---
@@ -39,6 +38,3 @@ index 75aea91..b94fd7c 100644
  			alert("RebuildFinished", dev, cnt, ainfo);
  		} else
  			alert("RebuildFinished", dev, NULL, ainfo);
--- 
-2.7.4
-
