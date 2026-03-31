@@ -1,4 +1,3 @@
-From 98e96bdbefaf0bf1c3d4161862af1ab6d03da1db Mon Sep 17 00:00:00 2001
 From: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date: Thu, 28 Sep 2017 14:41:16 +0200
 Subject: [PATCH 10/12] imsm: always do ppl recovery when starting a
@@ -14,7 +13,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 3 insertions(+)
 
 diff --git a/super-intel.c b/super-intel.c
-index 501d0c3..996d133 100644
+index 2e8eb0d..56c6042 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -7756,6 +7756,9 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
@@ -27,6 +26,3 @@ index 501d0c3..996d133 100644
  			} else {
  				info_d->component_size = blocks_per_member(map);
  			}
--- 
-2.7.4
-
