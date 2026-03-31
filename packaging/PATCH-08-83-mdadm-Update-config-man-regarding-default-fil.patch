@@ -1,4 +1,3 @@
-From 24e075c659d0a8718aabefe5af4c97195a188af7 Mon Sep 17 00:00:00 2001
 From: Lukasz Florczak <lukasz.florczak@linux.intel.com>
 Date: Fri, 18 Mar 2022 09:26:06 +0100
 Subject: [PATCH 08/83] mdadm: Update config man regarding default files and
@@ -16,12 +15,12 @@ Signed-off-by: Lukasz Florczak <lukasz.florczak@linux.intel.com>
 Acked-by: Coly Li <colyli@suse.de>
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
 ---
- mdadm.8.in      | 30 +++++++++--------------
- mdadm.conf.5.in | 65 ++++++++++++++++++++++++++++++++++++++++++++-----
+ mdadm.8.in      | 30 +++++++++++---------------
+ mdadm.conf.5.in | 65 +++++++++++++++++++++++++++++++++++++++++++++++++++------
  2 files changed, 71 insertions(+), 24 deletions(-)
 
 diff --git a/mdadm.8.in b/mdadm.8.in
-index 8b21ffd4..0be02e4a 100644
+index 8b21ffd..0be02e4 100644
 --- a/mdadm.8.in
 +++ b/mdadm.8.in
 @@ -266,14 +266,11 @@ the exact meaning of this option in different contexts.
@@ -81,7 +80,7 @@ index 8b21ffd4..0be02e4a 100644
  .SS {MAP_PATH}
  When
 diff --git a/mdadm.conf.5.in b/mdadm.conf.5.in
-index 83edd008..dd331a6a 100644
+index 83edd00..dd331a6 100644
 --- a/mdadm.conf.5.in
 +++ b/mdadm.conf.5.in
 @@ -88,7 +88,8 @@ but only the major and minor device numbers.  It scans
@@ -198,6 +197,3 @@ index 83edd008..dd331a6a 100644
  
  .SH EXAMPLE
  DEVICE /dev/sd[bcdjkl]1
--- 
-2.38.1
-
