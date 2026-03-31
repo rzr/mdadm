@@ -1,8 +1,6 @@
-From b251424242b46d62f666829c0e7a7550768fc8de Mon Sep 17 00:00:00 2001
 From: Pawel Baldysiak <pawel.baldysiak@intel.com>
 Date: Thu, 28 Sep 2017 14:41:11 +0200
-Subject: [PATCH 05/12] Zeroout whole ppl space during creation/force
- assemble
+Subject: [PATCH 05/12] Zeroout whole ppl space during creation/force assemble
 
 PPL area should be cleared before creation/force assemble.
 If the drive was used in other RAID array, it might contains PPL from it.
@@ -32,7 +30,7 @@ index 3fc8a4f..85947bf 100644
  				  struct mdinfo *sra,
  				  int raid_disks,
 diff --git a/super-intel.c b/super-intel.c
-index 56dec36..65cdc92 100644
+index d11ddae..e1862d4 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -6065,7 +6065,12 @@ static int write_init_ppl_imsm(struct supertype *st, struct mdinfo *info, int fd
@@ -50,7 +48,7 @@ index 56dec36..65cdc92 100644
  		pr_err("Failed to allocate PPL header buffer\n");
  		return ret;
 diff --git a/super1.c b/super1.c
-index f80e38a..7ae6dc3 100644
+index b31f845..6b82152 100644
 --- a/super1.c
 +++ b/super1.c
 @@ -1823,6 +1823,11 @@ static int write_init_ppl1(struct supertype *st, struct mdinfo *info, int fd)
@@ -129,6 +127,3 @@ index 68af381..c11729e 100644
 +	close(fd_zero);
 +	return ret;
 +}
--- 
-2.7.4
-
