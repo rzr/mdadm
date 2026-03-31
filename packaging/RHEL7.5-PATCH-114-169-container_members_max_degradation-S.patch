@@ -1,8 +1,7 @@
-From 74d293a2535ef8726a9d43577dad4a908f471a0e Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Fri, 5 May 2017 12:06:57 -0400
-Subject: [RHEL7.5 PATCH 114/169] container_members_max_degradation: Switch
- to using syfs for disk info
+Subject: [RHEL7.5 PATCH 114/169] container_members_max_degradation: Switch to
+ using syfs for disk info
 
 With sysfs now providing the necessary active_disks info, switch to
 sysfs and eliminate one more use of md_get_array_info(). We can do
@@ -60,6 +59,3 @@ index c00a43d..b73eabd 100644
  	return max_degraded;
  }
  
--- 
-2.7.4
-
