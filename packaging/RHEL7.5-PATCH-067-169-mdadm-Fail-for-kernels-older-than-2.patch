@@ -1,4 +1,3 @@
-From dcf3d4de95d1a4cbc65b24a844173ba1c1300b55 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Thu, 6 Apr 2017 15:46:31 -0400
 Subject: [RHEL7.5 PATCH 067/169] mdadm: Fail for kernels older than 2.6.15
@@ -27,6 +26,3 @@ index 3fe17fc..001ff68 100644
  	while ((option_index = -1),
  	       (opt = getopt_long(argc, argv, shortopt, long_options,
  				  &option_index)) != -1) {
--- 
-2.7.4
-
