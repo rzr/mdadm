@@ -1,4 +1,3 @@
-From 70f1ff4291b0388adca1f4c91918ce1175e8b360 Mon Sep 17 00:00:00 2001
 From: Lukasz Florczak <lukasz.florczak@linux.intel.com>
 Date: Wed, 15 Jun 2022 14:28:39 +0200
 Subject: [PATCH 26/83] mdadm: block update=ppl for non raid456 levels
@@ -22,7 +21,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  6 files changed, 31 insertions(+), 12 deletions(-)
 
 diff --git a/Assemble.c b/Assemble.c
-index 4b213560..6df6bfbc 100644
+index 4b21356..6df6bfb 100644
 --- a/Assemble.c
 +++ b/Assemble.c
 @@ -906,8 +906,7 @@ static int force_array(struct mdinfo *content,
@@ -65,7 +64,7 @@ index 4b213560..6df6bfbc 100644
  
  	if (enough(content->array.level, content->array.raid_disks,
 diff --git a/Grow.c b/Grow.c
-index f6efbc48..8c520d42 100644
+index f6efbc4..8c520d4 100644
 --- a/Grow.c
 +++ b/Grow.c
 @@ -2944,7 +2944,7 @@ static int impose_level(int fd, int level, char *devname, int verbose)
@@ -78,7 +77,7 @@ index f6efbc48..8c520d42 100644
  		 * remove any non-data devices. */
  		int found = 0;
 diff --git a/Manage.c b/Manage.c
-index f789e0c1..e5e6abe4 100644
+index f789e0c..e5e6abe 100644
 --- a/Manage.c
 +++ b/Manage.c
 @@ -307,7 +307,7 @@ int Manage_stop(char *devname, int fd, int verbose, int will_retry)
@@ -124,7 +123,7 @@ index f789e0c1..e5e6abe4 100644
  	close(fd);
  
 diff --git a/mdadm.h b/mdadm.h
-index d53df169..974415b9 100644
+index d53df16..974415b 100644
 --- a/mdadm.h
 +++ b/mdadm.h
 @@ -796,6 +796,17 @@ static inline int is_fd_valid(int fd)
@@ -146,7 +145,7 @@ index d53df169..974415b9 100644
   * close_fd() - verify, close and unset file descriptor.
   * @fd: pointer to file descriptor.
 diff --git a/super0.c b/super0.c
-index 61c9ec1d..37f595ed 100644
+index 61c9ec1..37f595e 100644
 --- a/super0.c
 +++ b/super0.c
 @@ -683,7 +683,7 @@ static int update_super0(struct supertype *st, struct mdinfo *info,
@@ -159,7 +158,7 @@ index 61c9ec1d..37f595ed 100644
  				    sb->new_chunk/512 *
  				    (sb->raid_disks - sb->delta_disks - parity))) {
 diff --git a/super1.c b/super1.c
-index 3a0c69fd..71af860c 100644
+index 3a0c69f..71af860 100644
 --- a/super1.c
 +++ b/super1.c
 @@ -1530,8 +1530,7 @@ static int update_super1(struct supertype *st, struct mdinfo *info,
@@ -172,6 +171,3 @@ index 3a0c69fd..71af860c 100644
  				reshape_sectors =
  					__le64_to_cpu(sb->reshape_position);
  				reshape_chunk = __le32_to_cpu(sb->new_chunk);
--- 
-2.38.1
-
