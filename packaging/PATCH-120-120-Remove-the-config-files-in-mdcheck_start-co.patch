@@ -1,4 +1,3 @@
-From 76c224c6cfc8ff154bd041d30b9551faecd593c1 Mon Sep 17 00:00:00 2001
 From: Xiao Ni <xni@redhat.com>
 Date: Fri, 7 Apr 2023 08:45:28 +0800
 Subject: [PATCH 120/120] Remove the config files in mdcheck_start|continue
@@ -16,7 +15,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  2 files changed, 4 deletions(-)
 
 diff --git a/systemd/mdcheck_continue.service b/systemd/mdcheck_continue.service
-index f5324905..70892a1f 100644
+index f532490..70892a1 100644
 --- a/systemd/mdcheck_continue.service
 +++ b/systemd/mdcheck_continue.service
 @@ -13,6 +13,4 @@ Documentation=man:mdadm(8)
@@ -27,7 +26,7 @@ index f5324905..70892a1f 100644
 -ExecStartPre=-/usr/lib/mdadm/mdadm_env.sh
  ExecStart=/usr/share/mdadm/mdcheck --continue --duration ${MDADM_CHECK_DURATION}
 diff --git a/systemd/mdcheck_start.service b/systemd/mdcheck_start.service
-index 703a6583..fc4fc438 100644
+index 703a658..fc4fc43 100644
 --- a/systemd/mdcheck_start.service
 +++ b/systemd/mdcheck_start.service
 @@ -13,6 +13,4 @@ Documentation=man:mdadm(8)
@@ -37,6 +36,3 @@ index 703a6583..fc4fc438 100644
 -EnvironmentFile=-/run/sysconfig/mdadm
 -ExecStartPre=-/usr/lib/mdadm/mdadm_env.sh
  ExecStart=/usr/share/mdadm/mdcheck --duration ${MDADM_CHECK_DURATION}
--- 
-2.38.1
-
