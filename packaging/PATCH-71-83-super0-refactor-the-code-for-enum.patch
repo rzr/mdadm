@@ -1,4 +1,3 @@
-From 0a9e39383d3bf63e1f5cf10f64200083a1af8091 Mon Sep 17 00:00:00 2001
 From: Mateusz Kusiak <mateusz.kusiak@intel.com>
 Date: Mon, 2 Jan 2023 09:35:19 +0100
 Subject: [PATCH 71/83] super0: refactor the code for enum
@@ -9,11 +8,11 @@ Change if else statements to switch.
 Signed-off-by: Mateusz Kusiak <mateusz.kusiak@intel.com>
 Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 ---
- super0.c | 102 ++++++++++++++++++++++++++++++++++---------------------
+ super0.c | 102 +++++++++++++++++++++++++++++++++++++++------------------------
  1 file changed, 63 insertions(+), 39 deletions(-)
 
 diff --git a/super0.c b/super0.c
-index 93876e2e..d9f5bff4 100644
+index 93876e2..d9f5bff 100644
 --- a/super0.c
 +++ b/super0.c
 @@ -502,19 +502,39 @@ static int update_super0(struct supertype *st, struct mdinfo *info,
@@ -207,6 +206,3 @@ index 93876e2e..d9f5bff4 100644
  
  	sb->sb_csum = calc_sb0_csum(sb);
  	return rv;
--- 
-2.38.1
-
