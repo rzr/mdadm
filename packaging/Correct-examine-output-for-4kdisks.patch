@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:48 +0200
+Subject: Correct-examine-output-for-4kdisks
+
 commit 84918897ee8bb450ea09f7c95b9da44df8e925e4
 Author: Maksymilian Kunt <maksymilian.kunt@intel.com>
 Date:   Tue May 9 14:03:27 2017 +0200
@@ -13,6 +17,9 @@ Date:   Tue May 9 14:03:27 2017 +0200
     Signed-off-by: Maksymilian Kunt <maksymilian.kunt@intel.com>
     Signed-off-by: Mariusz Dabrowski <mariusz.dabrowski@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ super-intel.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/super-intel.c b/super-intel.c
 index ba6f810..8ca80d3 100644
