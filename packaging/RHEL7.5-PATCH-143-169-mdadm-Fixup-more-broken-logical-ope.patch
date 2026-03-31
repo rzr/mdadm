@@ -1,4 +1,3 @@
-From d7be7d87366a7f9b190bc4e41ea06f7c9984028e Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 16 May 2017 13:59:43 -0400
 Subject: [RHEL7.5 PATCH 143/169] mdadm: Fixup more broken logical operator
@@ -251,6 +250,3 @@ index 0564c0b..d89438c 100644
  		return;
  	if (lim.rlim_max < fds)
  		lim.rlim_max = fds;
--- 
-2.7.4
-
