@@ -1,8 +1,7 @@
-From 75dd32a185871fead13cd3586e00980b35410ff0 Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Mon, 20 Mar 2017 13:21:41 +0800
-Subject: [RHEL7.5 PATCH 014/169] mdadm/Monitor: Fix NULL pointer
- dereference when stat2devnm return NULL
+Subject: [RHEL7.5 PATCH 014/169] mdadm/Monitor: Fix NULL pointer dereference
+ when stat2devnm return NULL
 
 Wait(): stat2devnm() returns NULL for non block devices. Check the
 pointer is valid derefencing it. This can happen when using --wait,
@@ -42,6 +41,3 @@ index 802a9d9..bdd3e63 100644
  
  	while(1) {
  		struct mdstat_ent *ms = mdstat_read(1, 0);
--- 
-2.7.4
-
