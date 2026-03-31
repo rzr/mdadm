@@ -1,4 +1,3 @@
-From d97572f5a59ca1ddde9971a79d47c9ea4db5891b Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 29 Mar 2017 15:23:50 -0400
 Subject: [RHEL7.5 PATCH 039/169] util: Introduce md_get_disk_info()
@@ -239,10 +238,11 @@ diff --git a/util.c b/util.c
 index 725877d..aa27e59 100644
 --- a/util.c
 +++ b/util.c
-@@ -221,6 +221,14 @@ int md_get_array_info(int fd, struct mdu_array_info_s *array)
+@@ -220,6 +220,14 @@ int md_get_array_info(int fd, struct mdu_array_info_s *array)
+ 	return ioctl(fd, GET_ARRAY_INFO, array);
  }
  
- /*
++/*
 + * Get disk info from the kernel.
 + */
 +int md_get_disk_info(int fd, struct mdu_disk_info_s *disk)
@@ -250,10 +250,9 @@ index 725877d..aa27e59 100644
 +	return ioctl(fd, GET_DISK_INFO, disk);
 +}
 +
-+/*
+ /*
   * Parse a 128 bit uuid in 4 integers
   * format is 32 hexx nibbles with options :.<space> separator
-  * If not exactly 32 hex digits are found, return 0
 @@ -553,7 +561,7 @@ int enough_fd(int fd)
  	avail = xcalloc(array.raid_disks, 1);
  	for (i = 0; i < MAX_DISKS && array.nr_disks > 0; i++) {
@@ -263,6 +262,3 @@ index 725877d..aa27e59 100644
  			continue;
  		if (disk.major == 0 && disk.minor == 0)
  			continue;
--- 
-2.7.4
-
