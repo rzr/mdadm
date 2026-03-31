@@ -1,4 +1,3 @@
-From 756a15f32338fdf0c562678694bc8991ad6afb90 Mon Sep 17 00:00:00 2001
 From: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Date: Mon, 13 Jun 2022 12:00:09 +0200
 Subject: [PATCH 19/83] imsm: Remove possibility for get_imsm_dev to return
@@ -10,11 +9,11 @@ Guarantee that it never happens.
 Signed-off-by: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
 ---
- super-intel.c | 153 +++++++++++++++++++++++++-------------------------
+ super-intel.c | 153 ++++++++++++++++++++++++++++++----------------------------
  1 file changed, 78 insertions(+), 75 deletions(-)
 
 diff --git a/super-intel.c b/super-intel.c
-index ba3bd41f..3788feb9 100644
+index ba3bd41..3788feb 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -851,6 +851,21 @@ static struct disk_info *get_disk_info(struct imsm_update_create_array *update)
@@ -296,6 +295,3 @@ index ba3bd41f..3788feb9 100644
  	return 0;
  }
  
--- 
-2.38.1
-
