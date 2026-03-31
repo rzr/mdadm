@@ -1,8 +1,7 @@
-From 2b7bddf06c30da08f8d6270b40f0d382c1c5fc6e Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Thu, 4 May 2017 11:39:05 -0400
-Subject: [RHEL7.5 PATCH 107/169] kernel-patch: Remove obsolete kernel
- patches against 2.6
+Subject: [RHEL7.5 PATCH 107/169] kernel-patch: Remove obsolete kernel patches
+ against 2.6
 
 While we still support some of these kernels, I do not think it makes
 sense to carry this patches around at this point.
@@ -390,6 +389,3 @@ index 8d0785d..0000000
 - 	return err;
 - }
 - 
--- 
-2.7.4
-
