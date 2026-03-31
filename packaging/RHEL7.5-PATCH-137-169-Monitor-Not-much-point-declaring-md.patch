@@ -1,8 +1,7 @@
-From 9f3dd4549b2b904d343b79a8a7ba40c547e71d5d Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Thu, 11 May 2017 16:40:16 -0400
-Subject: [RHEL7.5 PATCH 137/169] Monitor: Not much point declaring mdlist
- in both forks of the if() statement
+Subject: [RHEL7.5 PATCH 137/169] Monitor: Not much point declaring mdlist in
+ both forks of the if() statement
 
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
 ---
@@ -40,6 +39,3 @@ index 5b95847..a4afe75 100644
  			st->devname = xstrdup(dv->devname);
  			st->next = statelist;
  			st->devnm[0] = 0;
--- 
-2.7.4
-
