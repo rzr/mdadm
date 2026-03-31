@@ -1,4 +1,3 @@
-From 9b6e3b43381245cb128ad98bf117a565ce5defe5 Mon Sep 17 00:00:00 2001
 From: Mariusz Tkaczyk <mariusz.tkaczyk@linux.intel.com>
 Date: Thu, 23 Mar 2023 17:13:18 +0100
 Subject: [PATCH 114/120] Revert "Revert "mdadm/systemd: remove KillMode=none
@@ -16,7 +15,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 1 deletion(-)
 
 diff --git a/systemd/mdadm-grow-continue@.service b/systemd/mdadm-grow-continue@.service
-index 9ccadca3..64b8254a 100644
+index 9ccadca..64b8254 100644
 --- a/systemd/mdadm-grow-continue@.service
 +++ b/systemd/mdadm-grow-continue@.service
 @@ -15,4 +15,3 @@ ExecStart=BINDIR/mdadm --grow --continue /dev/%I
@@ -24,6 +23,3 @@ index 9ccadca3..64b8254a 100644
  StandardOutput=null
  StandardError=null
 -KillMode=none
--- 
-2.38.1
-
