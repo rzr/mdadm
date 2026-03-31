@@ -1,4 +1,3 @@
-From cc3df167c599d2ee0c132149c86fc0ad70d9f14e Mon Sep 17 00:00:00 2001
 From: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Date: Thu, 2 Feb 2023 12:27:01 +0100
 Subject: [PATCH 089/120] Mdmonitor: Add helper functions
@@ -16,11 +15,11 @@ Signed-off-by: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Acked-by: Coly Li <colyli@suse.de>
 Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 ---
- Monitor.c | 228 +++++++++++++++++++++++++++++++++++++-----------------
+ Monitor.c | 228 +++++++++++++++++++++++++++++++++++++++++++-------------------
  1 file changed, 158 insertions(+), 70 deletions(-)
 
 diff --git a/Monitor.c b/Monitor.c
-index 029e9efd..39598ba0 100644
+index 029e9ef..39598ba 100644
 --- a/Monitor.c
 +++ b/Monitor.c
 @@ -73,10 +73,12 @@ enum event {
@@ -401,6 +400,3 @@ index 029e9efd..39598ba0 100644
  					break;
  				}
  			}
--- 
-2.38.1
-
