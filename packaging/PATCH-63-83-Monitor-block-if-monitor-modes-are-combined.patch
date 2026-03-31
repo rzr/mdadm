@@ -1,4 +1,3 @@
-From f40ac0e7e6043361ad12e9db97c07e56c3977cf6 Mon Sep 17 00:00:00 2001
 From: Blazej Kucman <blazej.kucman@intel.com>
 Date: Mon, 19 Dec 2022 11:21:57 +0100
 Subject: [PATCH 63/83] Monitor: block if monitor modes are combined.
@@ -12,7 +11,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/Monitor.c b/Monitor.c
-index 0036e8cd..188cb8be 100644
+index 0036e8c..188cb8b 100644
 --- a/Monitor.c
 +++ b/Monitor.c
 @@ -123,7 +123,7 @@ int Monitor(struct mddev_dev *devlist,
@@ -36,6 +35,3 @@ index 0036e8cd..188cb8be 100644
  	if (!mailaddr)
  		mailaddr = conf_get_mailaddr();
  
--- 
-2.38.1
-
