@@ -1,4 +1,3 @@
-From b3e7b7eb1dfedd7cbd9a3800e884941f67d94c96 Mon Sep 17 00:00:00 2001
 From: Kinga Tanska <kinga.tanska@intel.com>
 Date: Tue, 27 Dec 2022 06:50:42 +0100
 Subject: [PATCH 80/83] Manage: do not check array state when drive is removed
@@ -15,7 +14,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/Manage.c b/Manage.c
-index 594e3d2c..4d6e54b1 100644
+index 594e3d2..4d6e54b 100644
 --- a/Manage.c
 +++ b/Manage.c
 @@ -1321,8 +1321,7 @@ bool is_remove_safe(mdu_array_info_t *array, const int fd, char *devname, const
@@ -28,6 +27,3 @@ index 594e3d2c..4d6e54b1 100644
  
  	free(avail);
  	return is_enough;
--- 
-2.38.1
-
