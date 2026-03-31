@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:48 +0200
+Subject: dont-allow-disks-with-different-sector-sizein-one
+
 commit f2cc4f7d829e1b849e78bdf6c38b7bd6e234c600
 Author: Alexey Obitotskiy <aleksey.obitotskiy@intel.com>
 Date:   Tue May 9 12:25:45 2017 +0200
@@ -12,6 +16,9 @@ Date:   Tue May 9 12:25:45 2017 +0200
     Signed-off-by: Alexey Obitotskiy <aleksey.obitotskiy@intel.com>
     Signed-off-by: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ super-intel.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
 diff --git a/super-intel.c b/super-intel.c
 index cfb10d5..e88fe82 100644
