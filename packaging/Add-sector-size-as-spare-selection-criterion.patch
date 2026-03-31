@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:48 +0200
+Subject: Add-sector-size-as-spare-selection-criterion
+
 commit 4b57ecf6cea134edff75a2f3a87ee48d52715c70
 Author: Alexey Obitotskiy <aleksey.obitotskiy@intel.com>
 Date:   Tue May 9 12:25:47 2017 +0200
@@ -12,6 +16,13 @@ Date:   Tue May 9 12:25:47 2017 +0200
     Signed-off-by: Alexey Obitotskiy <aleksey.obitotskiy@intel.com>
     Signed-off-by: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ Incremental.c |  4 ++--
+ Monitor.c     |  8 ++++++++
+ mdadm.h       |  3 +++
+ super-intel.c |  2 ++
+ util.c        | 31 ++++++++++++++++++++++++++++++-
+ 5 files changed, 45 insertions(+), 3 deletions(-)
 
 diff --git a/Incremental.c b/Incremental.c
 index fe9d644..30dc7a2 100644
