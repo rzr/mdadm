@@ -1,8 +1,7 @@
-From cb91230c87e02bf885759e9218abea629ab9f4b9 Mon Sep 17 00:00:00 2001
 From: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
 Date: Mon, 19 Jun 2017 11:19:53 +0200
-Subject: [RHEL7.5 PATCH 158/169] Monitor: don't assume mdadm parameter is
- a block device
+Subject: [RHEL7.5 PATCH 158/169] Monitor: don't assume mdadm parameter is a
+ block device
 
 If symlink (e.g. /dev/md/raid) is passed as a parameter to mdadm --wait,
 it fails as it's not able to find a corresponding entry in /proc/mdstat
@@ -44,6 +43,3 @@ index bef2f1b..48c451c 100644
  
  	while(1) {
  		struct mdstat_ent *ms = mdstat_read(1, 0);
--- 
-2.7.4
-
