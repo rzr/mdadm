@@ -1,8 +1,7 @@
-From 618f4e6d63c8c09d8d4002770e44617f3477f137 Mon Sep 17 00:00:00 2001
 From: Xiao Ni <xni@redhat.com>
 Date: Sat, 18 Mar 2017 10:33:44 +0800
-Subject: [RHEL7.5 PATCH 015/169] Replace snprintf with strncpy at some
- places to avoid truncation
+Subject: [RHEL7.5 PATCH 015/169] Replace snprintf with strncpy at some places
+ to avoid truncation
 
 In gcc7 there are some building errors like:
 directive output may be truncated writing up to 31 bytes into a region of size 24
@@ -53,6 +52,3 @@ index d5e9517..343f20d 100644
  			for (i = 0; i < mpb->num_raid_devs; i++) {
  				dev = get_imsm_dev(super, i);
  				handle_missing(super, dev);
--- 
-2.7.4
-
