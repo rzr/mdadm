@@ -1,4 +1,3 @@
-From b7a462e56135e38dfd9e53aeed6f425c28b1bbc7 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Fri, 29 Sep 2017 18:15:23 -0400
 Subject: [RHEL7.5 PATCH 13/13] util: Code is 80 characters wide
@@ -96,6 +95,3 @@ index c1c8509..68af381 100644
  	dlm_hooks->ls_lock = dlsym(dlm_hooks->dlm_handle, "dlm_ls_lock");
  	dlm_hooks->ls_unlock = dlsym(dlm_hooks->dlm_handle, "dlm_ls_unlock");
  	dlm_hooks->ls_get_fd = dlsym(dlm_hooks->dlm_handle, "dlm_ls_get_fd");
--- 
-2.7.4
-
