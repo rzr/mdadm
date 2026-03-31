@@ -1,8 +1,6 @@
-From b4decd517d90098bc2d17d3eddfe858d8b903920 Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.com>
 Date: Mon, 27 Mar 2017 14:36:56 +1100
-Subject: [RHEL7.5 PATCH 024/169] Detail: handle non-existent arrays
- better.
+Subject: [RHEL7.5 PATCH 024/169] Detail: handle non-existent arrays better.
 
 If you call "mdadm --detail" with a device file for an array which
 doesn't exist, such as by
@@ -40,6 +38,3 @@ index cb33794..3d92855 100644
  		array = sra->array;
  		inactive = 1;
  	} else {
--- 
-2.7.4
-
