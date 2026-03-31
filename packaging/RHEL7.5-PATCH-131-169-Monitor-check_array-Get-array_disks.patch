@@ -1,4 +1,3 @@
-From 12a9d21f4e9fd4d3a14129407f1e8da6d6444cd6 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 9 May 2017 16:58:55 -0400
 Subject: [RHEL7.5 PATCH 131/169] Monitor/check_array: Get array_disks from
@@ -31,6 +30,3 @@ index 9456efd..fe6f2b4 100644
  	st->err = 0;
  	if ((st->active < st->raid) && st->spare == 0)
  		retval = 1;
--- 
-2.7.4
-
