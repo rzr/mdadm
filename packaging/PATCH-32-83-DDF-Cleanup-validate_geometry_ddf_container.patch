@@ -1,4 +1,3 @@
-From 679bd9508a30b2a0a1baecc9a21dd6c7d8d8d7dc Mon Sep 17 00:00:00 2001
 From: Logan Gunthorpe <logang@deltatee.com>
 Date: Wed, 22 Jun 2022 14:25:07 -0600
 Subject: [PATCH 32/83] DDF: Cleanup validate_geometry_ddf_container()
@@ -13,11 +12,11 @@ Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
 Acked-by: Mariusz Tkaczyk <mariusz.tkaczyk@linux.intel.com>
 Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 ---
- super-ddf.c | 88 ++++++++++++++++++++++++-----------------------------
+ super-ddf.c | 88 +++++++++++++++++++++++++++----------------------------------
  1 file changed, 39 insertions(+), 49 deletions(-)
 
 diff --git a/super-ddf.c b/super-ddf.c
-index abbc8b09..9d867f69 100644
+index abbc8b0..9d867f6 100644
 --- a/super-ddf.c
 +++ b/super-ddf.c
 @@ -503,13 +503,6 @@ struct ddf_super {
@@ -136,6 +135,3 @@ index abbc8b09..9d867f69 100644
  static int validate_geometry_ddf_bvd(struct supertype *st,
  				     int level, int layout, int raiddisks,
  				     int *chunk, unsigned long long size,
--- 
-2.38.1
-
