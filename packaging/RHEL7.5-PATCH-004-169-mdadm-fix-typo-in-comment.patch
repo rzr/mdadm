@@ -1,4 +1,3 @@
-From e93bb91b12b5c8a799a04e314d376da38d007e9d Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Wed, 1 Mar 2017 16:44:33 +0800
 Subject: [RHEL7.5 PATCH 004/169] mdadm:fix typo in comment
@@ -22,6 +21,3 @@ index b5d89e4..16fd49a 100644
  	 *
  	 * For @,B,C and A without -s, the first device listed must be
  	 * an md device.  We check that here and open it.
--- 
-2.7.4
-
