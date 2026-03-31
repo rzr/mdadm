@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:49 +0200
+Subject: imsm-continue-resync-on-3disk-RAID10
+
 commit 8b9cd157dc030924afaeb1dd1a4d3306f5bda118
 Author: Maksymilian Kunt <maksymilian.kunt@intel.com>
 Date:   Mon Nov 13 12:30:49 2017 +0100
@@ -16,9 +20,12 @@ Date:   Mon Nov 13 12:30:49 2017 +0100
     Signed-off-by: Maksymilian Kunt <maksymilian.kunt@intel.com>
     Signed-off-by: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ super-intel.c | 41 +++++++++++++++++++++++++++++++++--------
+ 1 file changed, 33 insertions(+), 8 deletions(-)
 
 diff --git a/super-intel.c b/super-intel.c
-index 2f912f2..c55802f 100644
+index 5338501..3499b41 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -1342,6 +1342,20 @@ static unsigned long long round_size_to_mb(unsigned long long size, unsigned int
@@ -42,7 +49,7 @@ index 2f912f2..c55802f 100644
  /* try to determine how much space is reserved for metadata from
   * the last get_extents() entry on the smallest active disk,
   * otherwise fallback to the default
-@@ -7645,6 +7659,7 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
+@@ -7643,6 +7657,7 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
  		int slot;
  		int chunk;
  		char *ep;
@@ -50,7 +57,7 @@ index 2f912f2..c55802f 100644
  
  		if (subarray &&
  		    (i != strtoul(subarray, &ep, 10) || *ep != '\0'))
-@@ -7653,6 +7668,7 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
+@@ -7651,6 +7666,7 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
  		dev = get_imsm_dev(super, i);
  		map = get_imsm_map(dev, MAP_0);
  		map2 = get_imsm_map(dev, MAP_1);
@@ -58,7 +65,7 @@ index 2f912f2..c55802f 100644
  
  		/* do not publish arrays that are in the middle of an
  		 * unsupported migration
-@@ -7675,8 +7691,8 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
+@@ -7673,8 +7689,8 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
  		chunk = __le16_to_cpu(map->blocks_per_strip) >> 1;
  		/* mdadm does not support all metadata features- set the bit in all arrays state */
  		if (!validate_geometry_imsm_orom(super,
@@ -69,7 +76,7 @@ index 2f912f2..c55802f 100644
  						 map->num_members, /* raid disks */
  						 &chunk, join_u32(dev->size_low, dev->size_high),
  						 1 /* verbose */)) {
-@@ -7700,6 +7716,7 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
+@@ -7698,6 +7714,7 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
  			int idx;
  			int skip;
  			__u32 ord;
@@ -77,7 +84,7 @@ index 2f912f2..c55802f 100644
  
  			skip = 0;
  			idx = get_imsm_disk_idx(dev, slot, MAP_0);
-@@ -7713,19 +7730,27 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
+@@ -7711,19 +7728,27 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
  				skip = 1;
  			if (d && is_failed(&d->disk))
  				skip = 1;
