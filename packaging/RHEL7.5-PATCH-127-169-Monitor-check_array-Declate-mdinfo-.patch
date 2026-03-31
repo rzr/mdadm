@@ -1,8 +1,7 @@
-From 826522f0dc86d31cc7207b01957b5c4243f49dc8 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 9 May 2017 16:41:06 -0400
-Subject: [RHEL7.5 PATCH 127/169] Monitor/check_array: Declate mdinfo
- instance globally
+Subject: [RHEL7.5 PATCH 127/169] Monitor/check_array: Declate mdinfo instance
+ globally
 
 We can pull in more information from sysfs earlier, so move sra to the top.
 
@@ -33,6 +32,3 @@ index c519877..bb3a2c4 100644
  		if (sra && sra->mismatch_cnt > 0) {
  			char cnt[80];
  			snprintf(cnt, sizeof(cnt),
--- 
-2.7.4
-
