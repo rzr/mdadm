@@ -1,4 +1,3 @@
-From 6f2af6a48c541f207cb727a31fb86de2cd04fc21 Mon Sep 17 00:00:00 2001
 From: Kinga Tanska <kinga.tanska@intel.com>
 Date: Fri, 2 Sep 2022 08:49:23 +0200
 Subject: [PATCH 60/83] mdadm: replace container level checking with inline
@@ -23,7 +22,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  10 files changed, 33 insertions(+), 20 deletions(-)
 
 diff --git a/Assemble.c b/Assemble.c
-index 1dd82a8c..8b0af0c9 100644
+index 1dd82a8..8b0af0c 100644
 --- a/Assemble.c
 +++ b/Assemble.c
 @@ -1120,7 +1120,7 @@ static int start_array(int mdfd,
@@ -55,7 +54,7 @@ index 1dd82a8c..8b0af0c9 100644
  		    content->array.layout, clean, avail)) {
  		change += st->ss->update_super(st, content, "force-array",
 diff --git a/Create.c b/Create.c
-index e06ec2ae..953e7372 100644
+index e06ec2a..953e737 100644
 --- a/Create.c
 +++ b/Create.c
 @@ -487,7 +487,7 @@ int Create(struct supertype *st, char *mddev,
@@ -86,7 +85,7 @@ index e06ec2ae..953e7372 100644
  		 * create links */
  		sysfs_uevent(&info, "change");
 diff --git a/Grow.c b/Grow.c
-index 0f07a894..e362403a 100644
+index 0f07a89..e362403 100644
 --- a/Grow.c
 +++ b/Grow.c
 @@ -2175,7 +2175,7 @@ size_change_error:
@@ -117,7 +116,7 @@ index 0f07a894..e362403a 100644
  		 * container.  This is only needed when the metadata imposes
  		 * restraints of the various arrays in the container.
 diff --git a/Incremental.c b/Incremental.c
-index 4d0cd9d6..5a5f4c4c 100644
+index 4d0cd9d..5a5f4c4 100644
 --- a/Incremental.c
 +++ b/Incremental.c
 @@ -244,7 +244,7 @@ int Incremental(struct mddev_dev *devlist, struct context *c,
@@ -139,7 +138,7 @@ index 4d0cd9d6..5a5f4c4c 100644
  		/* Try to assemble within the container */
  		sysfs_uevent(sra, "change");
 diff --git a/mdadm.h b/mdadm.h
-index 941a5f38..3673494e 100644
+index 941a5f3..3673494 100644
 --- a/mdadm.h
 +++ b/mdadm.h
 @@ -1924,3 +1924,17 @@ enum r0layout {
@@ -161,7 +160,7 @@ index 941a5f38..3673494e 100644
 +	return 0;
 +}
 diff --git a/super-ddf.c b/super-ddf.c
-index 949e7d15..9d1e3b94 100644
+index 949e7d1..9d1e3b9 100644
 --- a/super-ddf.c
 +++ b/super-ddf.c
 @@ -3325,7 +3325,7 @@ validate_geometry_ddf_container(struct supertype *st,
@@ -192,7 +191,7 @@ index 949e7d15..9d1e3b94 100644
  			pr_err("DDF cannot create a container within an container\n");
  		return 0;
 diff --git a/super-intel.c b/super-intel.c
-index 4d82af3d..b0565610 100644
+index 4d82af3..b056561 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -6727,7 +6727,7 @@ static int validate_geometry_imsm_container(struct supertype *st, int level,
@@ -214,7 +213,7 @@ index 4d82af3d..b0565610 100644
  		return validate_geometry_imsm_container(st, level, raiddisks,
  							data_offset, dev,
 diff --git a/super0.c b/super0.c
-index 37f595ed..93876e2e 100644
+index 37f595e..93876e2 100644
 --- a/super0.c
 +++ b/super0.c
 @@ -1273,7 +1273,7 @@ static int validate_geometry0(struct supertype *st, int level,
@@ -227,7 +226,7 @@ index 37f595ed..93876e2e 100644
  			pr_err("0.90 metadata does not support containers\n");
  		return 0;
 diff --git a/super1.c b/super1.c
-index 58345e68..0b505a7e 100644
+index 58345e6..0b505a7 100644
 --- a/super1.c
 +++ b/super1.c
 @@ -2830,7 +2830,7 @@ static int validate_geometry1(struct supertype *st, int level,
@@ -240,7 +239,7 @@ index 58345e68..0b505a7e 100644
  			pr_err("1.x metadata does not support containers\n");
  		return 0;
 diff --git a/sysfs.c b/sysfs.c
-index 0d98a65f..ca1d888f 100644
+index 0d98a65..ca1d888 100644
 --- a/sysfs.c
 +++ b/sysfs.c
 @@ -763,7 +763,7 @@ int sysfs_add_disk(struct mdinfo *sra, struct mdinfo *sd, int resume)
@@ -252,6 +251,3 @@ index 0d98a65f..ca1d888f 100644
  		if (sra->consistency_policy == CONSISTENCY_POLICY_PPL) {
  			rv |= sysfs_set_num(sra, sd, "ppl_sector", sd->ppl_sector);
  			rv |= sysfs_set_num(sra, sd, "ppl_size", sd->ppl_size);
--- 
-2.38.1
-
