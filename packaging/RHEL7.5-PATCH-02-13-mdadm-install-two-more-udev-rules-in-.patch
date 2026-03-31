@@ -1,4 +1,3 @@
-From 52f6a11ec800114164a5b6866548109e0cbf8578 Mon Sep 17 00:00:00 2001
 From: Song Liu <songliubraving@fb.com>
 Date: Mon, 28 Aug 2017 15:20:35 -0700
 Subject: [RHEL7.5 PATCH 02/13] mdadm: install two more udev rules in
@@ -27,6 +26,3 @@ index 4e97efb..4e6f870 100644
  %config(noreplace,missingok)/%{_sysconfdir}/mdadm.conf
  %{_mandir}/man*/md*
  
--- 
-2.7.4
-
