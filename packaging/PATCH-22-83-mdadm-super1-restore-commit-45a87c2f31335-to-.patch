@@ -1,4 +1,3 @@
-From 63902857b98c37c8ac4b837bb01d006b327a4532 Mon Sep 17 00:00:00 2001
 From: Heming Zhao <heming.zhao@suse.com>
 Date: Tue, 21 Jun 2022 00:10:40 +0800
 Subject: [PATCH 22/83] mdadm/super1: restore commit 45a87c2f31335 to fix
@@ -83,7 +82,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/super1.c b/super1.c
-index e3e2f954..3a0c69fd 100644
+index e3e2f95..3a0c69f 100644
 --- a/super1.c
 +++ b/super1.c
 @@ -2674,7 +2674,17 @@ static int write_bitmap1(struct supertype *st, int fd, enum bitmap_update update
@@ -105,6 +104,3 @@ index e3e2f954..3a0c69fd 100644
  				/*
  				 * Since the nodes num is not increased, no
  				 * need to check the space enough or not,
--- 
-2.38.1
-
