@@ -1,8 +1,7 @@
-From 0ef1043ce8dd3f36c7227aa4a260819c4c17c78d Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Wed, 12 Apr 2017 14:50:02 -0400
-Subject: [RHEL7.5 PATCH 077/169] Assemble: Remove obsolete test for
- kernels older than 2.4
+Subject: [RHEL7.5 PATCH 077/169] Assemble: Remove obsolete test for kernels
+ older than 2.4
 
 We only support 2.6.15+ at this point
 
@@ -29,6 +28,3 @@ index 22596b5..d6beb23 100644
  	if (pre_exist == NULL) {
  		if (mddev_busy(fd2devnm(mdfd))) {
  			pr_err("%s already active, cannot restart it!\n",
--- 
-2.7.4
-
