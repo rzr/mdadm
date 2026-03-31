@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:49 +0200
+Subject: imsm-Set-disk-slot-number
+
 commit 20dc76d15b40c17b4ccdc3d6283af8ecb513707f
 Author: Mariusz Tkaczyk <mariusz.tkaczyk@intel.com>
 Date:   Tue Oct 3 14:49:49 2017 +0200
@@ -15,12 +19,15 @@ Date:   Tue Oct 3 14:49:49 2017 +0200
     Signed-off-by: Mariusz Tkaczyk <mariusz.tkaczyk@intel.com>
     Reviewed-by: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ super-intel.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/super-intel.c b/super-intel.c
-index 536cb61..b561fe2 100644
+index 3499b41..026ea28 100644
 --- a/super-intel.c
 +++ b/super-intel.c
-@@ -3502,6 +3502,9 @@ static void getinfo_super_imsm(struct supertype *st, struct mdinfo *info, char *
+@@ -3516,6 +3516,9 @@ static void getinfo_super_imsm(struct supertype *st, struct mdinfo *info, char *
  			__u32 ord = get_imsm_ord_tbl_ent(dev, j, MAP_0);
  			__u32 idx = ord_to_idx(ord);
  
