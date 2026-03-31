@@ -1,8 +1,6 @@
-From 07c45a1871df0a70beb8da80d11601d33c7a5de2 Mon Sep 17 00:00:00 2001
 From: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
 Date: Mon, 5 Jun 2017 16:09:44 +0200
-Subject: [RHEL7.5 PATCH 150/169] Grow: set component size prior to array
- size
+Subject: [RHEL7.5 PATCH 150/169] Grow: set component size prior to array size
 
 It is a partial revert of commit 758b327cf5a7 ("Grow: Remove unnecessary
 optimization"). For native metadata component size is set in kernel for
@@ -29,6 +27,3 @@ index ecf5ca0..4ecb1d8 100644
  			if (array.not_persistent == 0 &&
  			    array.major_version == 0 &&
  			    get_linux_version() < 3001000) {
--- 
-2.7.4
-
