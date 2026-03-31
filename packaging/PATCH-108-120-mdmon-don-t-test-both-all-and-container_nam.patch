@@ -1,4 +1,3 @@
-From d39fd87e31024804dd7f2c16c03af0379b71f5f1 Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.de>
 Date: Mon, 13 Mar 2023 14:42:58 +1100
 Subject: [PATCH 108/120] mdmon: don't test both 'all' and 'container_name'.
@@ -14,7 +13,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 4 insertions(+), 7 deletions(-)
 
 diff --git a/mdmon.c b/mdmon.c
-index 60ba3182..f8fd2f0f 100644
+index 60ba318..f8fd2f0 100644
 --- a/mdmon.c
 +++ b/mdmon.c
 @@ -352,7 +352,6 @@ int main(int argc, char *argv[])
@@ -42,6 +41,3 @@ index 60ba3182..f8fd2f0f 100644
  	}
  
  	if (container_name == NULL || argc - optind > 1)
--- 
-2.38.1
-
