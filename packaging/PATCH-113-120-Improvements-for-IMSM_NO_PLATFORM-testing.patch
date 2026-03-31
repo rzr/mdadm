@@ -1,4 +1,3 @@
-From 420dafcd38c5949c2ddb90ad6873e7edd625db30 Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.de>
 Date: Mon, 20 Mar 2023 14:43:54 +1100
 Subject: [PATCH 113/120] Improvements for IMSM_NO_PLATFORM testing.
@@ -19,12 +18,12 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  mdadm.8.in             |  5 +++++
  mdadm.h                |  2 ++
  mdmon.c                |  6 ++++++
- super-intel.c          | 45 +++++++++++++++++++++++++++++++++++++++---
+ super-intel.c          | 45 ++++++++++++++++++++++++++++++++++++++++++---
  systemd/mdmon@.service |  3 ---
  5 files changed, 55 insertions(+), 6 deletions(-)
 
 diff --git a/mdadm.8.in b/mdadm.8.in
-index 6f0f6c13..b7159509 100644
+index 6f0f6c1..b715950 100644
 --- a/mdadm.8.in
 +++ b/mdadm.8.in
 @@ -3197,6 +3197,11 @@ environment.  This can be useful for testing or for disaster
@@ -40,7 +39,7 @@ index 6f0f6c13..b7159509 100644
  .B MDADM_GROW_ALLOW_OLD
  If an array is stopped while it is performing a reshape and that
 diff --git a/mdadm.h b/mdadm.h
-index 1e518276..0d995445 100644
+index 1e51827..0d99544 100644
 --- a/mdadm.h
 +++ b/mdadm.h
 @@ -1263,6 +1263,8 @@ extern struct superswitch super0, super1;
@@ -53,7 +52,7 @@ index 1e518276..0d995445 100644
  	int	len;
  	char	*buf;
 diff --git a/mdmon.c b/mdmon.c
-index 096b4d76..cef5bbc8 100644
+index 096b4d7..cef5bbc 100644
 --- a/mdmon.c
 +++ b/mdmon.c
 @@ -318,6 +318,12 @@ int main(int argc, char *argv[])
@@ -70,7 +69,7 @@ index 096b4d76..cef5bbc8 100644
  		switch (opt) {
  		case 'a':
 diff --git a/super-intel.c b/super-intel.c
-index e155a8ae..a5c86cb2 100644
+index e155a8a..a5c86cb 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -20,6 +20,7 @@
@@ -154,7 +153,7 @@ index e155a8ae..a5c86cb2 100644
  
  	struct sys_dev *idev;
 diff --git a/systemd/mdmon@.service b/systemd/mdmon@.service
-index 23a375f6..020cc7e1 100644
+index 23a375f..020cc7e 100644
 --- a/systemd/mdmon@.service
 +++ b/systemd/mdmon@.service
 @@ -15,9 +15,6 @@ Documentation=man:mdmon(8)
@@ -167,6 +166,3 @@ index 23a375f6..020cc7e1 100644
  # The mdmon starting in the initramfs (with dracut at least)
  # cannot see sysfs after root is mounted, so we will have to
  # 'takeover'.  As the '--offroot --takeover' don't hurt when
--- 
-2.38.1
-
