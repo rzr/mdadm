@@ -1,4 +1,3 @@
-From 8a4ce2c053866ac97feb436c4c85a54446ee0016 Mon Sep 17 00:00:00 2001
 From: Logan Gunthorpe <logang@deltatee.com>
 Date: Wed, 1 Mar 2023 13:41:31 -0700
 Subject: [PATCH 101/120] Create: Factor out add_disks() helpers
@@ -22,11 +21,11 @@ Reviewed-by: Chaitanya Kulkarni <kch@nvidia.com>
 Acked-by: Coly Li <colyli@suse.de>
 Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 ---
- Create.c | 382 +++++++++++++++++++++++++++++++------------------------
+ Create.c | 382 +++++++++++++++++++++++++++++++++++----------------------------
  1 file changed, 213 insertions(+), 169 deletions(-)
 
 diff --git a/Create.c b/Create.c
-index 8ded81dc..6a044664 100644
+index 8ded81d..6a04466 100644
 --- a/Create.c
 +++ b/Create.c
 @@ -91,6 +91,214 @@ int default_layout(struct supertype *st, int level, int verbose)
@@ -447,6 +446,3 @@ index 8ded81dc..6a044664 100644
  
  	if (is_container(s->level)) {
  		/* No need to start.  But we should signal udev to
--- 
-2.38.1
-
