@@ -272,6 +272,11 @@ int Restore_metadata(char *dev, char *dir, struct context *c,
 		       fname);
 		goto err;
 	}
+	if (stat(fname, &stb) != 0) {
+		pr_err("Could not stat %s for --restore.\n",
+		       fname);
+		goto err;
+	}
 	if (((unsigned long long)stb.st_size) != size) {
 		pr_err("%s is not the same size as %s - cannot restore.\n",
 		       fname, dev);
@@ -301,6 +306,9 @@ int Restore_metadata(char *dev, char *dir, struct context *c,
 	}
 	if (c->verbose >= 0)
 		printf("%s restored from %s.\n", dev, fname);
+	close(fl);
+	close(fd);
+	free(fname);
 	return 0;
 
 err:

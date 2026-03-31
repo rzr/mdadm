@@ -171,6 +171,7 @@ static void try_kill_monitor(pid_t pid, char *devname, int sock)
 	int fd;
 	int n;
 	long fl;
+	int rv;
 
 	/* first rule of survival... don't off yourself */
 	if (pid == getpid())
@@ -201,9 +202,16 @@ static void try_kill_monitor(pid_t pid, char *devname, int sock)
 	fl &= ~O_NONBLOCK;
 	fcntl(sock, F_SETFL, fl);
 	n = read(sock, buf, 100);
-	/* Ignore result, it is just the wait that
-	 * matters
-	 */
+
+	/* If there is I/O going on it might took some time to get to
+	 * clean state. Wait for monitor to exit fully to avoid races.
+	 * Ping it with SIGUSR1 in case that it is sleeping  */
+	for (n = 0; n < 25; n++) {
+		rv = kill(pid, SIGUSR1);
+		if (rv < 0)
+			break;
+		usleep(200000);
+	}
 }
 
 void remove_pidfile(char *devname)
@@ -408,10 +416,6 @@ static int mdmon(char *devnm, int must_fork, int takeover)
 		pr_err("%s: %s\n", devnm, strerror(errno));
 		return 1;
 	}
-	if (md_get_version(mdfd) < 0) {
-		pr_err("%s: Not an md device\n", devnm);
-		return 1;
-	}
 
 	/* Fork, and have the child tell us when they are ready */
 	if (must_fork) {
@@ -542,14 +546,7 @@ static int mdmon(char *devnm, int must_fork, int takeover)
 	}
 
 	setsid();
-	close(0);
-	open("/dev/null", O_RDWR);
-	close(1);
-	ignore = dup(0);
-#ifndef DEBUG
-	close(2);
-	ignore = dup(0);
-#endif
+	manage_fork_fds(0);
 
 	/* This silliness is to stop the compiler complaining
 	 * that we ignore 'ignore'
@@ -578,11 +575,6 @@ int restore_stripes(int *dest, unsigned long long *offsets,
 		    char *src_buf)
 {
 	return 1;
-}
-
-void abort_reshape(struct mdinfo *sra)
-{
-	return;
 }
 
 int save_stripes(int *source, unsigned long long *offsets,
