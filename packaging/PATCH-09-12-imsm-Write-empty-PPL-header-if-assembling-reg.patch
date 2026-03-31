@@ -1,8 +1,7 @@
-From 50b9c10da0e7c153744b548680147dc8cc7c4c72 Mon Sep 17 00:00:00 2001
 From: Pawel Baldysiak <pawel.baldysiak@intel.com>
 Date: Thu, 28 Sep 2017 14:41:15 +0200
-Subject: [PATCH 09/12] imsm: Write empty PPL header if assembling
- regular clean array.
+Subject: [PATCH 09/12] imsm: Write empty PPL header if assembling regular
+ clean array.
 
 If array was initially assembled with kernel without PPL support -
 initial header was never written to the drive.
@@ -19,7 +18,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/super-intel.c b/super-intel.c
-index 7b2327b..501d0c3 100644
+index 016a602..2e8eb0d 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -6225,7 +6225,9 @@ out:
@@ -33,6 +32,3 @@ index 7b2327b..501d0c3 100644
  			ret = st->ss->write_init_ppl(st, info, d->fd);
  		else
  			info->mismatch_cnt++;
--- 
-2.7.4
-
