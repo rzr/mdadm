@@ -1,8 +1,7 @@
-From 230a0dde0926125b8895e02a669b4701f79c0f07 Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Sat, 1 Apr 2017 20:51:44 +0800
-Subject: [RHEL7.5 PATCH 049/169] mdadm/Create: declaring an existing
- struct within same function
+Subject: [RHEL7.5 PATCH 049/169] mdadm/Create: declaring an existing struct
+ within same function
 
 Create:declaring 'struct stat stb' twice within the same
 function, rename stb as stb2 when declares 'struct stat'
@@ -51,6 +50,3 @@ index 32987af..ba24606 100644
  				}
  				break;
  			case 2:
--- 
-2.7.4
-
