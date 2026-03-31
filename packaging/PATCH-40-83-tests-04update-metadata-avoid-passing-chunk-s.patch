@@ -1,4 +1,3 @@
-From de045db607b1ac4b70fc2a8878463e029c2ab1dc Mon Sep 17 00:00:00 2001
 From: Sudhakar Panneerselvam <sudhakar.panneerselvam@oracle.com>
 Date: Wed, 22 Jun 2022 14:25:15 -0600
 Subject: [PATCH 40/83] tests/04update-metadata: avoid passing chunk size to
@@ -18,7 +17,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/tests/04update-metadata b/tests/04update-metadata
-index 08c14af7..2b72a303 100644
+index 08c14af..2b72a30 100644
 --- a/tests/04update-metadata
 +++ b/tests/04update-metadata
 @@ -11,7 +11,11 @@ dlist="$dev0 $dev1 $dev2 $dev3"
@@ -34,6 +33,3 @@ index 08c14af7..2b72a303 100644
    testdev $md0 $s 19904 64
    mdadm -S $md0
    mdadm -A $md0 --update=metadata $dlist
--- 
-2.38.1
-
