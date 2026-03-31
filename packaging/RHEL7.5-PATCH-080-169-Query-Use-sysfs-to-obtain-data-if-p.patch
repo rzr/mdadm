@@ -1,8 +1,6 @@
-From f22d6cde7c7e4be38230ac4c51c3af850ed1614e Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Thu, 13 Apr 2017 12:20:46 -0400
-Subject: [RHEL7.5 PATCH 080/169] Query: Use sysfs to obtain data if
- possible
+Subject: [RHEL7.5 PATCH 080/169] Query: Use sysfs to obtain data if possible
 
 Use sysfs to obtain leve, raid_disks, and spare_disks. If sysfs fails,
 fall back to calling the ioctl via md_get_array_info().
@@ -75,6 +73,3 @@ index 0d18da4..b761c47 100644
  	}
  	st = guess_super(fd);
  	if (st && st->ss->compare_super != NULL)
--- 
-2.7.4
-
