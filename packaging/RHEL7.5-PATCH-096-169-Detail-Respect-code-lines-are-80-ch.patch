@@ -1,8 +1,7 @@
-From 5737086ed7a39e4d940ed1459d1afad359c3182c Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 25 Apr 2017 12:21:39 -0400
-Subject: [RHEL7.5 PATCH 096/169] Detail: Respect code lines are 80
- character wide
+Subject: [RHEL7.5 PATCH 096/169] Detail: Respect code lines are 80 character
+ wide
 
 In addition apply spaces and don'f do 'if () action()' on the same line.
 
@@ -516,6 +515,3 @@ index eb69276..ceb21b1 100644
  		rv = 2;
  
  	free(disks);
--- 
-2.7.4
-
