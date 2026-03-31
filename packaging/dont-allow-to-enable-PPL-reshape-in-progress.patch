@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:49 +0200
+Subject: dont-allow-to-enable-PPL-reshape-in-progress
+
 commit 922a58292fafa4efcfcd44fbc46b0665681c955a
 Author: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
 Date:   Fri Jun 9 16:20:19 2017 +0200
@@ -9,6 +13,9 @@ Date:   Fri Jun 9 16:20:19 2017 +0200
     
     Signed-off-by: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ Grow.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
 diff --git a/Grow.c b/Grow.c
 index f7325cb..b1cb306 100644
