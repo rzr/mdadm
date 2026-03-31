@@ -1,4 +1,3 @@
-From 68b90794adf8287fa534cc8f35efb09772b133d0 Mon Sep 17 00:00:00 2001
 From: Wu Guanghao <wuguanghao3@huawei.com>
 Date: Sat, 4 Mar 2023 00:21:35 +0800
 Subject: [PATCH 098/120] super-ddf.c: fix memleak in get_vd_num_of_subarray()
@@ -15,7 +14,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/super-ddf.c b/super-ddf.c
-index 309812df..b86c6acd 100644
+index 309812d..b86c6ac 100644
 --- a/super-ddf.c
 +++ b/super-ddf.c
 @@ -1592,15 +1592,20 @@ static unsigned int get_vd_num_of_subarray(struct supertype *st)
@@ -41,6 +40,3 @@ index 309812df..b86c6acd 100644
  
  	return vcnum;
  }
--- 
-2.38.1
-
