@@ -1,5 +1,15 @@
---- mdadm/udev-md-raid-assembly.rules~	2017-09-19 11:22:49.912766829 +0800
-+++ mdadm/udev-md-raid-assembly.rules	2017-09-19 11:23:23.951809560 +0800
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:49 +0200
+Subject: mdadm-3.3-udev
+
+---
+ udev-md-raid-assembly.rules | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/udev-md-raid-assembly.rules b/udev-md-raid-assembly.rules
+index 9f055ed..428e96a 100644
+--- a/udev-md-raid-assembly.rules
++++ b/udev-md-raid-assembly.rules
 @@ -5,6 +5,10 @@
  ENV{ANACONDA}=="?*", GOTO="md_inc_end"
  # assemble md arrays
