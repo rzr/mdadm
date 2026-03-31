@@ -1,6 +1,16 @@
---- mdadm-3.2.1/Makefile.static	2011-03-27 22:31:20.000000000 -0400
-+++ mdadm-3.2.1/Makefile	2011-03-28 10:16:55.277900184 -0400
-@@ -238,16 +238,16 @@ install : mdadm mdmon install-man instal
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:49 +0200
+Subject: mdadm-2.5.2-static
+
+---
+ Makefile | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 514e4f2..8042845 100644
+--- a/Makefile
++++ b/Makefile
+@@ -239,16 +239,16 @@ install : mdadm mdmon install-man install-udev
  	$(INSTALL) -D $(STRIP) -m 755 mdmon $(DESTDIR)$(BINDIR)/mdmon
  
  install-static : mdadm.static install-man
