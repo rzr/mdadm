@@ -1,4 +1,3 @@
-From 5fbc1f1527ec86ae904739a27c0af4e3bc89084e Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Mon, 10 Apr 2017 12:49:52 +0800
 Subject: [RHEL7.5 PATCH 068/169] mdadm.c:fix compile warning "mdfd is
@@ -27,6 +26,3 @@ index 001ff68..41dae1d 100644
  
  		switch(dv->disposition) {
  		case 'D':
--- 
-2.7.4
-
