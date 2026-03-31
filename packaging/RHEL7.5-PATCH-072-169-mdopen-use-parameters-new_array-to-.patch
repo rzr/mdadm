@@ -1,8 +1,7 @@
-From 039df36231335fabe4da1a22fa3accb160d8bc1b Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.com>
 Date: Wed, 12 Apr 2017 16:29:04 +1000
-Subject: [RHEL7.5 PATCH 072/169] mdopen: use parameters/new_array to
- create arrays whenever possible.
+Subject: [RHEL7.5 PATCH 072/169] mdopen: use parameters/new_array to create
+ arrays whenever possible.
 
 In a sufficiently recent kernel, an md%d array can be
 created by writing to .../parameters/new_array.
@@ -49,6 +48,3 @@ index fe240e5..82b97fc 100644
  	if (devnm[0])
  		;
  	else if (num < 0) {
--- 
-2.7.4
-
