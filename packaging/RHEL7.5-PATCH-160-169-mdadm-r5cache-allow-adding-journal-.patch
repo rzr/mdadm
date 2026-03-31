@@ -1,8 +1,7 @@
-From 3373d49f32b2bd8149f633727eba453708a9bf9c Mon Sep 17 00:00:00 2001
 From: Song Liu <songliubraving@fb.com>
 Date: Tue, 28 Mar 2017 11:04:44 -0700
-Subject: [RHEL7.5 PATCH 160/169] mdadm/r5cache: allow adding journal to
- array without journal
+Subject: [RHEL7.5 PATCH 160/169] mdadm/r5cache: allow adding journal to array
+ without journal
 
 Currently, --add-journal can be only used to recreate broken journal
 for arrays with journal since  creation. As the kernel code getting
@@ -58,6 +57,3 @@ index ecfe9da..461c5de 100644
  .B \-\-add-journal
  only works for array in Read-Only state.
  
--- 
-2.7.4
-
