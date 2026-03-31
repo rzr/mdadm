@@ -1,9 +1,9 @@
-From ff9239ee3177630d62c7a58408992af7a779763c Mon Sep 17 00:00:00 2001
 From: Xiao Ni <xni@redhat.com>
 Date: Fri, 17 Mar 2017 19:55:43 +0800
-Subject: [RHEL6.9 PATCH 1/1] mdadm: Specify enough length when write to buffer
+Subject: [RHEL6.9 PATCH 1/1] mdadm: Specify enough length when write to
+ buffer
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 In Detail.c the buffer path in function Detail is defined as path[200],
@@ -69,6 +69,3 @@ index f100972..32bd909 100644
  
  	/* We convert bytes to either centi-M{ega,ibi}bytes or
  	 * centi-G{igi,ibi}bytes, with appropriate rounding,
--- 
-2.7.4
-
