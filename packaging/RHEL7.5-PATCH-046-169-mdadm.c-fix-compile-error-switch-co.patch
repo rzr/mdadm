@@ -1,8 +1,7 @@
-From 13428e2e76e8149336282d514908ced424f878a2 Mon Sep 17 00:00:00 2001
 From: Gioh Kim <gi-oh.kim@profitbricks.com>
 Date: Thu, 30 Mar 2017 18:58:13 +0200
-Subject: [RHEL7.5 PATCH 046/169] mdadm.c: fix compile error "switch
- condition has boolean value"
+Subject: [RHEL7.5 PATCH 046/169] mdadm.c: fix compile error "switch condition
+ has boolean value"
 
 Remove a boolean expression in switch condition
 to prevent compile error of some compilers,
@@ -39,6 +38,3 @@ index 0f32773..d6b5437 100644
  		if (mdfd >= 0) {
  			switch(dv->disposition) {
  			case 'R':
--- 
-2.7.4
-
