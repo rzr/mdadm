@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:47 +0200
+Subject: generic-support-for-consistency-policy-and-PPL
+
 commit 5308f11727b889965efe5ac0e854d197c2b51f6d
 Author: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date:   Wed Mar 29 11:54:15 2017 +0200
@@ -14,6 +18,22 @@ Date:   Wed Mar 29 11:54:15 2017 +0200
     
     Signed-off-by: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
     Signed-off-by: Jes Sorensen <Jes.Sorensen@gmail.com>
+---
+ Create.c      | 18 ++++++++++++++----
+ Kill.c        |  2 +-
+ ReadMe.c      | 51 +++++++++++++++++++++++++++------------------------
+ maps.c        | 10 ++++++++++
+ mdadm.8.in    | 40 +++++++++++++++++++++++++++++++++++++---
+ mdadm.c       | 55 ++++++++++++++++++++++++++++++++++++++++++++++++++++---
+ mdadm.h       | 21 ++++++++++++++++++---
+ super-ddf.c   |  6 +++---
+ super-gpt.c   |  2 +-
+ super-intel.c | 16 ++++++++--------
+ super-mbr.c   |  2 +-
+ super0.c      |  8 ++++----
+ super1.c      |  6 +++---
+ sysfs.c       | 11 +++++++++++
+ 14 files changed, 190 insertions(+), 58 deletions(-)
 
 diff --git a/Create.c b/Create.c
 index 2721884..4080bf6 100644
