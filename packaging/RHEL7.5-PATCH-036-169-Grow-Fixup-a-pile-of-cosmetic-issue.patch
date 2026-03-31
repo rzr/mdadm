@@ -1,4 +1,3 @@
-From 6ebf34e6bdd9e952d00ad3c2f12a130bfb68965e Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 29 Mar 2017 12:15:20 -0400
 Subject: [RHEL7.5 PATCH 036/169] Grow: Fixup a pile of cosmetic issues
@@ -171,6 +170,3 @@ index b86b53e..6405f0e 100755
  					new_size * data_disks);
  				s->size = new_size;
  				sysfs_free(sizeinfo);
--- 
-2.7.4
-
