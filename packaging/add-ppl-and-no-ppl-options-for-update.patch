@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:47 +0200
+Subject: add-ppl-and-no-ppl-options-for-update
+
 commit e6e9dd3f1b255f9921ebc023c1e5b65601a637e2
 Author: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date:   Wed Mar 29 11:54:19 2017 +0200
@@ -9,6 +13,13 @@ Date:   Wed Mar 29 11:54:19 2017 +0200
     
     Signed-off-by: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
     Signed-off-by: Jes Sorensen <Jes.Sorensen@gmail.com>
+---
+ Assemble.c    |  6 ++++++
+ mdadm.8.in    | 27 ++++++++++++++++++++++++---
+ mdadm.c       |  6 +++++-
+ super-intel.c | 55 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ super1.c      | 49 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 139 insertions(+), 4 deletions(-)
 
 diff --git a/Assemble.c b/Assemble.c
 index c098420..6a6a56b 100644
