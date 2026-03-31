@@ -1,8 +1,6 @@
-From f566ef45d356f6dcd4ec54d294be8664770d8b84 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Thu, 11 May 2017 16:56:55 -0400
-Subject: [RHEL7.5 PATCH 139/169] Monitor: Fixup a pile of whitespace
- issues
+Subject: [RHEL7.5 PATCH 139/169] Monitor: Fixup a pile of whitespace issues
 
 No code was hurt in this event
 
@@ -324,6 +322,3 @@ index 83a6d10..0198a34 100644
  
  		/* restore the original safe_mode_delay */
  		sysfs_set_safemode(mdi, mdi->safe_mode_delay);
--- 
-2.7.4
-
