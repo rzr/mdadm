@@ -1,4 +1,3 @@
-From 3ab8f4bf33d906cb1084f7b4036556bfb4bb73ec Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Thu, 13 Apr 2017 13:30:17 -0400
 Subject: [RHEL7.5 PATCH 082/169] util: Introduce md_array_active() helper
@@ -94,6 +93,3 @@ index a695c45..3adc675 100644
  /*
   * Get array info from the kernel. Longer term we want to deprecate the
   * ioctl and get it from sysfs.
--- 
-2.7.4
-
