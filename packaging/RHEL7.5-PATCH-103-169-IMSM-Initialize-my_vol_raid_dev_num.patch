@@ -1,8 +1,7 @@
-From 2a24dc1b0988a7d924de6339754d4160762a61f7 Mon Sep 17 00:00:00 2001
 From: Pawel Baldysiak <pawel.baldysiak@intel.com>
 Date: Wed, 26 Apr 2017 11:08:07 +0200
-Subject: [RHEL7.5 PATCH 103/169] IMSM: Initialize my_vol_raid_dev_num
- during vol creation
+Subject: [RHEL7.5 PATCH 103/169] IMSM: Initialize my_vol_raid_dev_num during
+ vol creation
 
 This field was not initialized so far. This ID needs to be unique
 for every newly created array in container.
@@ -42,6 +41,3 @@ index fbff215..36f77d3 100644
  
  	if (s->consistency_policy <= CONSISTENCY_POLICY_RESYNC) {
  		dev->rwh_policy = RWH_OFF;
--- 
-2.7.4
-
