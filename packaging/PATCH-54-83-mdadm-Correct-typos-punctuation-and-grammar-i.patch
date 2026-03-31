@@ -1,4 +1,3 @@
-From 1a386f804d8392b849b3362da6b0157b0db83091 Mon Sep 17 00:00:00 2001
 From: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Date: Fri, 12 Aug 2022 16:52:12 +0200
 Subject: [PATCH 54/83] mdadm: Correct typos, punctuation and grammar in man
@@ -7,11 +6,11 @@ Signed-off-by: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Reviewed-by: Wol <anthony@youngman.org.uk>
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
 ---
- mdadm.8.in | 178 ++++++++++++++++++++++++++---------------------------
+ mdadm.8.in | 178 ++++++++++++++++++++++++++++++-------------------------------
  1 file changed, 88 insertions(+), 90 deletions(-)
 
 diff --git a/mdadm.8.in b/mdadm.8.in
-index f2736226..70c79d1e 100644
+index f273622..70c79d1 100644
 --- a/mdadm.8.in
 +++ b/mdadm.8.in
 @@ -158,7 +158,7 @@ adding new spares and removing faulty devices.
@@ -611,6 +610,3 @@ index f2736226..70c79d1e 100644
  stored on the device being reshaped.
  
  
--- 
-2.38.1
-
