@@ -1,8 +1,7 @@
-From 6438c249c4fed92cf6e5fb492d19f4c4f516ff6f Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.com>
 Date: Fri, 4 Aug 2017 15:30:02 +1000
-Subject: [RHEL7.5 PATCH 166/169] super1: only set clustered flag when
- bitmap is present
+Subject: [RHEL7.5 PATCH 166/169] super1: only set clustered flag when bitmap
+ is present
 
 If no bitmap is present, then the test
 
@@ -38,6 +37,3 @@ index b15a1c7..f6a1045 100644
  	} else if (sb->feature_map & __le32_to_cpu(MD_FEATURE_PPL)) {
  		info->ppl_offset = __le16_to_cpu(sb->ppl.offset);
  		info->ppl_size = __le16_to_cpu(sb->ppl.size);
--- 
-2.7.4
-
