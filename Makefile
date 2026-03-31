@@ -50,7 +50,7 @@ ifeq ($(origin CC),default)
 CC := $(CROSS_COMPILE)gcc
 endif
 CXFLAGS ?= -ggdb
-CWFLAGS = -Wall -Werror -Wstrict-prototypes -Wextra -Wno-unused-parameter
+CWFLAGS = -Wall -Wstrict-prototypes -Wextra -Wno-unused-parameter
 ifdef WARN_UNUSED
 CWFLAGS += -Wp,-D_FORTIFY_SOURCE=2 -O3
 endif
