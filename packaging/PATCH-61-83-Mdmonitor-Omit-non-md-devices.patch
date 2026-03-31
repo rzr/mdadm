@@ -1,4 +1,3 @@
-From 8b668d4aa3305af5963162b7499b128bd71f8f29 Mon Sep 17 00:00:00 2001
 From: Lukasz Florczak <lukasz.florczak@linux.intel.com>
 Date: Thu, 22 Sep 2022 08:29:50 +0200
 Subject: [PATCH 61/83] Mdmonitor: Omit non-md devices
@@ -24,7 +23,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 4 insertions(+), 8 deletions(-)
 
 diff --git a/Monitor.c b/Monitor.c
-index b4e954c6..7d7dc4d2 100644
+index b4e954c..7d7dc4d 100644
 --- a/Monitor.c
 +++ b/Monitor.c
 @@ -185,10 +185,8 @@ int Monitor(struct mddev_dev *devlist,
@@ -53,6 +52,3 @@ index b4e954c6..7d7dc4d2 100644
  
  			st = xcalloc(1, sizeof *st);
  			mdlist = conf_get_ident(dv->devname);
--- 
-2.38.1
-
