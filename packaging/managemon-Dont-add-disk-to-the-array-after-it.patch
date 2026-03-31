@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:49 +0200
+Subject: managemon-Dont-add-disk-to-the-array-after-it
+
 commit a44c262abc49b3c69ee80c97813388e5d021d20b
 Author: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
 Date:   Thu Dec 7 10:23:54 2017 +0100
@@ -18,6 +22,9 @@ Date:   Thu Dec 7 10:23:54 2017 +0100
     
     Signed-off-by: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ managemon.c | 21 ---------------------
+ 1 file changed, 21 deletions(-)
 
 diff --git a/managemon.c b/managemon.c
 index 4e85398..101231c 100644
