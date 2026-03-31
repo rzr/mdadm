@@ -1,4 +1,3 @@
-From 3b8c7127558bad386c8350e039061107c9cf6cde Mon Sep 17 00:00:00 2001
 From: Song Liu <songliubraving@fb.com>
 Date: Tue, 29 Aug 2017 09:53:02 -0700
 Subject: [RHEL7.5 PATCH 03/13] mdadm: set journal_clean after scanning all
@@ -55,6 +54,3 @@ index 6cf2174..91301eb 100644
  
  	if (!avail)
  		return 0;
--- 
-2.7.4
-
