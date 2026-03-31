@@ -1,8 +1,7 @@
-From ceb5f8ef92c97d1f44c75a3b74f64aa12a3303ef Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.com>
 Date: Fri, 4 Aug 2017 15:30:02 +1000
-Subject: [RHEL7.5 PATCH 165/169] Use correct syntax for passing DEVLINKS
- to mdadm from udev
+Subject: [RHEL7.5 PATCH 165/169] Use correct syntax for passing DEVLINKS to
+ mdadm from udev
 
  ${DEVLINKS}
 is not valid udev syntax, and is passed through uninterpreted.
@@ -44,6 +43,3 @@ index 8ca232a..9f055ed 100644
  ACTION=="add|change", ENV{MD_STARTED}=="*unsafe*", ENV{MD_FOREIGN}=="no", ENV{SYSTEMD_WANTS}+="mdadm-last-resort@$env{MD_DEVICE}.timer"
  ACTION=="remove", ENV{ID_PATH}=="?*", RUN+="BINDIR/mdadm -If $name --path $env{ID_PATH}"
  ACTION=="remove", ENV{ID_PATH}!="?*", RUN+="BINDIR/mdadm -If $name"
--- 
-2.7.4
-
