@@ -1,4 +1,3 @@
-From 565cc99e341b3021ad26ff6da19a67d4e4abffde Mon Sep 17 00:00:00 2001
 From: Pawel Baldysiak <pawel.baldysiak@intel.com>
 Date: Tue, 24 Jan 2017 14:29:33 +0100
 Subject: [RHEL7.5 PATCH 002/169] imsm: fix missing error message during
@@ -30,6 +29,3 @@ index 433bb6d..d5e9517 100644
  			return 0;
  		}
  		sysfs_free(spares);
--- 
-2.7.4
-
