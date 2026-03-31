@@ -1,8 +1,7 @@
-From b8e5713c74901862b96bf599ab6fd227addc1498 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 9 May 2017 16:54:19 -0400
-Subject: [RHEL7.5 PATCH 130/169] Monitor/check_array: Get 'failed_disks'
- from sysfs
+Subject: [RHEL7.5 PATCH 130/169] Monitor/check_array: Get 'failed_disks' from
+ sysfs
 
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
 ---
@@ -41,6 +40,3 @@ index b94fd7c..9456efd 100644
  	st->utime = array.utime;
  	st->raid = array.raid_disks;
  	st->err = 0;
--- 
-2.7.4
-
