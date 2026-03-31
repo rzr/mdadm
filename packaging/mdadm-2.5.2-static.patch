@@ -1,6 +1,16 @@
---- mdadm-3.2.1/Makefile.static	2021-01-11 15:46:47.292126848 +0800
-+++ mdadm-3.2.1/Makefile	2021-01-11 15:46:10.720192519 +0800
-@@ -248,16 +248,16 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 15:03:30 +0200
+Subject: mdadm-2.5.2-static
+
+---
+ Makefile | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 5eac1a4..491e428 100644
+--- a/Makefile
++++ b/Makefile
+@@ -258,16 +258,16 @@ sha1.o : sha1.c sha1.h md5.h
  install : install-bin install-man install-udev
  
  install-static : mdadm.static install-man
