@@ -1,4 +1,3 @@
-From 8fac4a54cbafdd8e0a6a0c0b3ce87f1bcdef3d9d Mon Sep 17 00:00:00 2001
 From: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
 Date: Thu, 18 May 2017 15:14:49 +0200
 Subject: [RHEL7.5 PATCH 146/169] manpage: bad block support for IMSM
@@ -24,6 +23,3 @@ index 388e0ed..ecfe9da 100644
  number of bad blocks to be recorded, allowing the drive to remain in
  service while only partially functional.
  
--- 
-2.7.4
-
