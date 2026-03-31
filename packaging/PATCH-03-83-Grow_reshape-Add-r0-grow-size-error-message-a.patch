@@ -1,8 +1,7 @@
-From fea026b4849182fc8413014c81456e7215af28d9 Mon Sep 17 00:00:00 2001
 From: Mateusz Kusiak <mateusz.kusiak@intel.com>
 Date: Wed, 23 Mar 2022 15:05:19 +0100
-Subject: [PATCH 03/83] Grow_reshape: Add r0 grow size error message and update
- man
+Subject: [PATCH 03/83] Grow_reshape: Add r0 grow size error message and
+ update man
 
 Grow size on r0 is not supported for imsm and native metadata.
 Add proper error message.
@@ -15,7 +14,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  2 files changed, 18 insertions(+), 7 deletions(-)
 
 diff --git a/Grow.c b/Grow.c
-index 9a947204..aa72490b 100644
+index 9a94720..aa72490 100644
 --- a/Grow.c
 +++ b/Grow.c
 @@ -1998,6 +1998,12 @@ int Grow_reshape(char *devname, int fd,
@@ -32,7 +31,7 @@ index 9a947204..aa72490b 100644
  				  devname, APPLY_METADATA_CHANGES,
  				  c->verbose > 0)) {
 diff --git a/mdadm.8.in b/mdadm.8.in
-index be902dba..e2a42425 100644
+index be902db..e2a4242 100644
 --- a/mdadm.8.in
 +++ b/mdadm.8.in
 @@ -459,7 +459,8 @@ number of spare devices.
@@ -78,6 +77,3 @@ index be902dba..e2a42425 100644
  .TP
  .BR \-Z ", " \-\-array\-size=
  This is only meaningful with
--- 
-2.38.1
-
