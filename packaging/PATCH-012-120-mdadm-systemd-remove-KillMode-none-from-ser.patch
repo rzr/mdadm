@@ -1,7 +1,7 @@
-From 52c67fcdd6dadc4138ecad73e65599551804d445 Mon Sep 17 00:00:00 2001
 From: Coly Li <colyli@suse.de>
 Date: Tue, 15 Feb 2022 21:34:15 +0800
-Subject: [PATCH 012/120] mdadm/systemd: remove KillMode=none from service file
+Subject: [PATCH 012/120] mdadm/systemd: remove KillMode=none from service
+ file
 
 For mdadm's systemd configuration, current systemd KillMode is "none" in
 following service files,
@@ -47,7 +47,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  2 files changed, 2 deletions(-)
 
 diff --git a/systemd/mdadm-grow-continue@.service b/systemd/mdadm-grow-continue@.service
-index 5c667d2a..9fdc8ec7 100644
+index 5c667d2..9fdc8ec 100644
 --- a/systemd/mdadm-grow-continue@.service
 +++ b/systemd/mdadm-grow-continue@.service
 @@ -14,4 +14,3 @@ ExecStart=BINDIR/mdadm --grow --continue /dev/%I
@@ -56,7 +56,7 @@ index 5c667d2a..9fdc8ec7 100644
  StandardError=null
 -KillMode=none
 diff --git a/systemd/mdmon@.service b/systemd/mdmon@.service
-index 85a3a7c5..77533958 100644
+index 85a3a7c..7753395 100644
 --- a/systemd/mdmon@.service
 +++ b/systemd/mdmon@.service
 @@ -25,4 +25,3 @@ Type=forking
@@ -64,6 +64,3 @@ index 85a3a7c5..77533958 100644
  # initramfs to rootfs.
  #PIDFile=/run/mdadm/%I.pid
 -KillMode=none
--- 
-2.38.1
-
