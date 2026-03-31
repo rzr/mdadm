@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:47 +0200
+Subject: imsm-use-rounded-size-for-metadata-initialization
+
 commit b53bfba6119d3f6f56eb9e10e5a59da6901af159
 Author: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
 Date:   Thu Mar 30 16:25:41 2017 +0200
@@ -12,6 +16,9 @@ Date:   Thu Mar 30 16:25:41 2017 +0200
     
     Signed-off-by: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
     Signed-off-by: Jes Sorensen <Jes.Sorensen@gmail.com>
+---
+ super-intel.c | 52 ++++++++++++++++++++++++++++++++++------------------
+ 1 file changed, 34 insertions(+), 18 deletions(-)
 
 diff --git a/super-intel.c b/super-intel.c
 index 785488a..84dfe2b 100644
