@@ -1,8 +1,6 @@
-From b63804583e25fbc00b96c7f37f97d568b5b1ba9c Mon Sep 17 00:00:00 2001
 From: Coly Li <colyli@suse.de>
 Date: Sun, 16 Apr 2017 15:01:29 +0800
-Subject: [RHEL7.5 PATCH 086/169] mdadm: retire mdassemble in make
- everything
+Subject: [RHEL7.5 PATCH 086/169] mdadm: retire mdassemble in make everything
 
 make everything reports no rule to make mdassemble, because mdassemble
 is removed from mdadm. This patch removes mdassemble from "everything"
@@ -53,6 +51,3 @@ index a5d2a0a..5655812 100644
  	init.cpio.gz mdadm.uclibc.static test_stripe raid6check raid6check.o mdmon \
  	mdadm.8
  
--- 
-2.7.4
-
