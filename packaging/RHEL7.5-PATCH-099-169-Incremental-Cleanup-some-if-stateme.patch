@@ -1,4 +1,3 @@
-From f8c432bfc9929dbbcb659b2d11552dc9fc76ad24 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 25 Apr 2017 15:01:43 -0400
 Subject: [RHEL7.5 PATCH 099/169] Incremental: Cleanup some if() statement
@@ -147,6 +146,3 @@ index a351151..66c5b03 100644
  				break;
  		if (mddev && mddev->bitmap_file) {
  			/*
--- 
-2.7.4
-
