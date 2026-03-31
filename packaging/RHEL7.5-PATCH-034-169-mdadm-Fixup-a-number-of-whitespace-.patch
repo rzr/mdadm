@@ -1,4 +1,3 @@
-From 8ea982179af73f5b1d3fc937676ec7c969a190ac Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 29 Mar 2017 12:02:14 -0400
 Subject: [RHEL7.5 PATCH 034/169] mdadm: Fixup a number of whitespace
@@ -192,6 +191,3 @@ index 502e721..0f32773 100644
  			switch(dv->disposition) {
  			case 'R':
  				c->runstop = 1;
--- 
-2.7.4
-
