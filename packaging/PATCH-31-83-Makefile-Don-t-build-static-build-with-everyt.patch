@@ -1,4 +1,3 @@
-From 14ae4c37bce9a53da08d59d6c2d7e0946e9c9f47 Mon Sep 17 00:00:00 2001
 From: Logan Gunthorpe <logang@deltatee.com>
 Date: Wed, 22 Jun 2022 14:25:06 -0600
 Subject: [PATCH 31/83] Makefile: Don't build static build with everything and
@@ -22,7 +21,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index bf126033..ec1f99ed 100644
+index bf12603..ec1f99e 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -182,9 +182,9 @@ check_rundir:
@@ -37,6 +36,3 @@ index bf126033..ec1f99ed 100644
  	mdadm.Os mdadm.O2 man
  # mdadm.uclibc doesn't work on x86-64
  # mdadm.tcc doesn't work..
--- 
-2.38.1
-
