@@ -1,4 +1,3 @@
-From 24d329fc97a64ec185ef27e59730f3f058c09029 Mon Sep 17 00:00:00 2001
 From: Xiao Ni <xni@redhat.com>
 Date: Thu, 5 Jan 2023 00:29:20 +0800
 Subject: [PATCH 79/83] mdadm/udev: Don't handle change event on raw devices
@@ -24,7 +23,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 8 insertions(+)
 
 diff --git a/udev-md-raid-assembly.rules b/udev-md-raid-assembly.rules
-index 39b4344b..d4a7f0a5 100644
+index 39b4344..d4a7f0a 100644
 --- a/udev-md-raid-assembly.rules
 +++ b/udev-md-raid-assembly.rules
 @@ -11,6 +11,11 @@ SUBSYSTEM!="block", GOTO="md_inc_end"
@@ -49,6 +48,3 @@ index 39b4344b..d4a7f0a5 100644
  # remember you can limit what gets auto/incrementally assembled by
  # mdadm.conf(5)'s 'AUTO' and selectively whitelist using 'ARRAY'
  ACTION!="remove", IMPORT{program}="BINDIR/mdadm --incremental --export $devnode --offroot $env{DEVLINKS}"
--- 
-2.38.1
-
