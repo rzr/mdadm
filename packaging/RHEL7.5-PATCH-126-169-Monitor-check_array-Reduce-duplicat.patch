@@ -1,8 +1,7 @@
-From 13e5d8455c22d4db420ead9fde3ee0c1536b73a3 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 9 May 2017 16:38:06 -0400
-Subject: [RHEL7.5 PATCH 126/169] Monitor/check_array: Reduce duplicated
- error handling
+Subject: [RHEL7.5 PATCH 126/169] Monitor/check_array: Reduce duplicated error
+ handling
 
 Avoid closing fd in multiple places, and duplicating the error message
 for when a device disappeared.
@@ -94,6 +93,3 @@ index f404009..c519877 100644
  }
  
  static int add_new_arrays(struct mdstat_ent *mdstat, struct state **statelist,
--- 
-2.7.4
-
