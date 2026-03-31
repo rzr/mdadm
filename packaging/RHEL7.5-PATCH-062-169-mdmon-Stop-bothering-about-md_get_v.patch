@@ -1,8 +1,6 @@
-From 15d924d363a2bc02aa4a489241333be3d7820978 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 5 Apr 2017 15:39:51 -0400
-Subject: [RHEL7.5 PATCH 062/169] mdmon: Stop bothering about
- md_get_version()
+Subject: [RHEL7.5 PATCH 062/169] mdmon: Stop bothering about md_get_version()
 
 If anyone has a kernel with md driver older than 0.90.03 they will
 also know where to find older versions of mdadm.
@@ -27,6 +25,3 @@ index 95e9bba..0955fcc 100644
  
  	/* Fork, and have the child tell us when they are ready */
  	if (must_fork) {
--- 
-2.7.4
-
