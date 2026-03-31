@@ -1,8 +1,6 @@
-From b0ba6a1dee995b3cd7331b4df92d115e51d8ac0c Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 29 Mar 2017 15:48:24 -0400
-Subject: [RHEL7.5 PATCH 041/169] md_u: Remove some unused ioctl
- declarations
+Subject: [RHEL7.5 PATCH 041/169] md_u: Remove some unused ioctl declarations
 
 These were no longer used in the code, so get rid of them.
 
@@ -35,6 +33,3 @@ index f570a34..d59aa2d 100644
  #define HOT_ADD_DISK		_IO (MD_MAJOR, 0x28)
  #define SET_DISK_FAULTY		_IO (MD_MAJOR, 0x29)
  #define SET_BITMAP_FILE		_IOW (MD_MAJOR, 0x2b, int)
--- 
-2.7.4
-
