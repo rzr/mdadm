@@ -1,4 +1,3 @@
-From 06ef619582b47af89eb094c164fc5effd46d6048 Mon Sep 17 00:00:00 2001
 From: Wu Guanghao <wuguanghao3@huawei.com>
 Date: Sat, 4 Mar 2023 00:21:31 +0800
 Subject: [PATCH 094/120] util.c: fix memleak in parse_layout_faulty()
@@ -15,7 +14,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 2 insertions(+)
 
 diff --git a/util.c b/util.c
-index b0b7aec4..9f1e1f7c 100644
+index b0b7aec..9f1e1f7 100644
 --- a/util.c
 +++ b/util.c
 @@ -432,6 +432,8 @@ int parse_layout_faulty(char *layout)
@@ -27,6 +26,3 @@ index b0b7aec4..9f1e1f7c 100644
  	if (mode == UnSet)
  		return -1;
  
--- 
-2.38.1
-
