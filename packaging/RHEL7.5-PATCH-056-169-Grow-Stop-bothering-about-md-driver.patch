@@ -1,4 +1,3 @@
-From 6ae8b2b3140475b1a70485052454210aba4065a6 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 5 Apr 2017 15:22:36 -0400
 Subject: [RHEL7.5 PATCH 056/169] Grow: Stop bothering about md driver
@@ -30,6 +29,3 @@ index 78a3474..15f4ed1 100755
  	/*
  	 * We only ever get called if s->bitmap_file is != NULL, so this check
  	 * is just here to quiet down static code checkers.
--- 
-2.7.4
-
