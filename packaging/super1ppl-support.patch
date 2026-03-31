@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:47 +0200
+Subject: super1ppl-support
+
 commit e97a7cd011345e5dead736de51b33968da49d876
 Author: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date:   Wed Mar 29 11:54:18 2017 +0200
@@ -17,6 +21,14 @@ Date:   Wed Mar 29 11:54:18 2017 +0200
     
     Signed-off-by: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
     Signed-off-by: Jes Sorensen <Jes.Sorensen@gmail.com>
+---
+ Assemble.c    |   3 ++
+ Create.c      |   2 +
+ Grow.c        |  15 +++++-
+ Incremental.c |   3 ++
+ mdadm.h       |   1 +
+ super1.c      | 150 +++++++++++++++++++++++++++++++++++++++++++++++++++-------
+ 6 files changed, 155 insertions(+), 19 deletions(-)
 
 diff --git a/Assemble.c b/Assemble.c
 index 8e55b49..c098420 100644
