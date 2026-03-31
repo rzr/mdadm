@@ -1,8 +1,7 @@
-From 3a77acd7170199adc690332ded37c41f067c720e Mon Sep 17 00:00:00 2001
 From: Hannes Reinecke <hare@suse.de>
 Date: Mon, 27 Mar 2017 11:15:44 +1100
-Subject: [RHEL7.5 PATCH 019/169] udev-md-raid-assembly.rules: Skip
- non-ready devices
+Subject: [RHEL7.5 PATCH 019/169] udev-md-raid-assembly.rules: Skip non-ready
+ devices
 
 If a device isn't fully initialized (e.g if it should be
 handled by multipathing) it should not be considered for
@@ -34,6 +33,3 @@ index d0d440a..8ca232a 100644
  # handle potential components of arrays (the ones supported by md)
  ENV{ID_FS_TYPE}=="linux_raid_member", GOTO="md_inc"
  
--- 
-2.7.4
-
