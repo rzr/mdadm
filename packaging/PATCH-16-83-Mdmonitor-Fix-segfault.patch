@@ -1,4 +1,3 @@
-From e702f392959d1c2ad2089e595b52235ed97b4e18 Mon Sep 17 00:00:00 2001
 From: Kinga Tanska <kinga.tanska@intel.com>
 Date: Mon, 6 Jun 2022 12:32:12 +0200
 Subject: [PATCH 16/83] Mdmonitor: Fix segfault
@@ -19,7 +18,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  3 files changed, 27 insertions(+), 1 deletion(-)
 
 diff --git a/Monitor.c b/Monitor.c
-index c0ab5412..4e5802b5 100644
+index c0ab541..4e5802b 100644
 --- a/Monitor.c
 +++ b/Monitor.c
 @@ -182,6 +182,7 @@ int Monitor(struct mddev_dev *devlist,
@@ -54,7 +53,7 @@ index c0ab5412..4e5802b5 100644
  			st->devname = xstrdup(dv->devname);
  			st->next = statelist;
 diff --git a/mdadm.h b/mdadm.h
-index 09915a00..d53df169 100644
+index 09915a0..d53df16 100644
 --- a/mdadm.h
 +++ b/mdadm.h
 @@ -1636,6 +1636,7 @@ extern int create_mddev(char *dev, char *name, int autof, int trustworthy,
@@ -66,7 +65,7 @@ index 09915a00..d53df169 100644
  extern int metadata_container_matches(char *metadata, char *devnm);
  extern int metadata_subdev_matches(char *metadata, char *devnm);
 diff --git a/mdopen.c b/mdopen.c
-index 245be537..d18c9319 100644
+index 245be53..d18c931 100644
 --- a/mdopen.c
 +++ b/mdopen.c
 @@ -475,6 +475,23 @@ int open_mddev(char *dev, int report_errors)
@@ -93,6 +92,3 @@ index 245be537..d18c9319 100644
  char *find_free_devnm(int use_partitions)
  {
  	static char devnm[32];
--- 
-2.38.1
-
