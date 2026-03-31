@@ -1,8 +1,7 @@
-From ed1809969802ba03be0a33b7cd9f0ea85c7a42aa Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 29 Mar 2017 11:55:19 -0400
-Subject: [RHEL7.5 PATCH 033/169] mdadm: Clean up some ugly multiple
- actions on single line
+Subject: [RHEL7.5 PATCH 033/169] mdadm: Clean up some ugly multiple actions
+ on single line
 
 'foo(); continue;' on the same line within a switch statement is
 always wrong. Get rid of some of it.
@@ -75,6 +74,3 @@ index 5ebf117..502e721 100644
  			}
  			close(mdfd);
  		} else
--- 
-2.7.4
-
