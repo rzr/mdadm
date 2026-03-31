@@ -1,4 +1,3 @@
-From b938519e7719c992dae2d61c796c45fe49e6b71b Mon Sep 17 00:00:00 2001
 From: Mateusz Kusiak <mateusz.kusiak@intel.com>
 Date: Mon, 2 Jan 2023 09:46:22 +0100
 Subject: [PATCH 78/83] util: remove obsolete code from get_md_name
@@ -16,7 +15,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  2 files changed, 20 insertions(+), 39 deletions(-)
 
 diff --git a/mdmon.c b/mdmon.c
-index ecf52dc8..60ba3182 100644
+index ecf52dc..60ba318 100644
 --- a/mdmon.c
 +++ b/mdmon.c
 @@ -366,7 +366,7 @@ int main(int argc, char *argv[])
@@ -43,7 +42,7 @@ index ecf52dc8..60ba3182 100644
  	}
  
 diff --git a/util.c b/util.c
-index 26ffdcea..9cd89fa4 100644
+index 26ffdce..9cd89fa 100644
 --- a/util.c
 +++ b/util.c
 @@ -968,47 +968,30 @@ dev_t devnm2devid(char *devnm)
@@ -111,6 +110,3 @@ index 26ffdcea..9cd89fa4 100644
  	return NULL;
  }
  
--- 
-2.38.1
-
