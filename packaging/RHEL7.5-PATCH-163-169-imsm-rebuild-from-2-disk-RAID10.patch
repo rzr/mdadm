@@ -1,4 +1,3 @@
-From fb12a7454000c56aa0439c5bc07fb29de2f3f2a1 Mon Sep 17 00:00:00 2001
 From: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
 Date: Thu, 10 Aug 2017 15:47:22 +0200
 Subject: [RHEL7.5 PATCH 163/169] imsm: rebuild from 2-disk RAID10
@@ -176,6 +175,3 @@ index 51b7cc3..125c3a9 100644
  			map = get_imsm_map(dev, MAP_1);
  			if (map)
  				set_imsm_ord_tbl_ent(map, j, ord - 1);
--- 
-2.7.4
-
