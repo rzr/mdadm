@@ -1,8 +1,7 @@
-From a250ce240f245df594570a5e25398680d403af67 Mon Sep 17 00:00:00 2001
 From: NeilBrown <neilb@suse.com>
 Date: Thu, 20 Apr 2017 12:40:05 +1000
-Subject: [RHEL7.5 PATCH 087/169] Grow_continue_command: ensure 'content'
- is properly initialised.
+Subject: [RHEL7.5 PATCH 087/169] Grow_continue_command: ensure 'content' is
+ properly initialised.
 
 Grow_continue_command() call verify_reshape_position(), which assumes
 that info->sys_name is initialised.
@@ -31,6 +30,3 @@ index 15f4ed1..c6967ed 100755
  		/* Need to load a superblock.
  		 * FIXME we should really get what we need from
  		 * sysfs
--- 
-2.7.4
-
