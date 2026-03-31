@@ -1,4 +1,3 @@
-From b98943a4f889b466a3d07264068042b18c620d33 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 9 May 2017 17:03:03 -0400
 Subject: [RHEL7.5 PATCH 132/169] Monitor/check_array: Get nr_disks,
@@ -66,6 +65,3 @@ index fe6f2b4..2204528 100644
  	st->failed = sra->array.failed_disks;
  	st->utime = array.utime;
  	st->raid = sra->array.raid_disks;
--- 
-2.7.4
-
