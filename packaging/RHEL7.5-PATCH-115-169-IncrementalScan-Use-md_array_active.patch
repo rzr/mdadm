@@ -1,4 +1,3 @@
-From 00e56fd9537e1f69583d8b0f60faf02026f24d1b Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Fri, 5 May 2017 12:18:29 -0400
 Subject: [RHEL7.5 PATCH 115/169] IncrementalScan: Use md_array_active()
@@ -33,6 +32,3 @@ index b73eabd..680d318 100644
  			close(mdfd);
  			continue;
  		}
--- 
-2.7.4
-
