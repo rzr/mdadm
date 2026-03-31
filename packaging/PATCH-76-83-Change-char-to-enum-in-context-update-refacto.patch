@@ -1,7 +1,7 @@
-From 3a87fa67112dc2c2c3664aeecd0b49cb4b6ceaa9 Mon Sep 17 00:00:00 2001
 From: Mateusz Kusiak <mateusz.kusiak@intel.com>
 Date: Mon, 2 Jan 2023 09:35:24 +0100
-Subject: [PATCH 76/83] Change char* to enum in context->update & refactor code
+Subject: [PATCH 76/83] Change char* to enum in context->update & refactor
+ code
 
 Storing update option in string is bad for frequent comparisons and
 error prone.
@@ -18,7 +18,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  3 files changed, 37 insertions(+), 57 deletions(-)
 
 diff --git a/Assemble.c b/Assemble.c
-index dba910cd..49804941 100644
+index dba910c..4980494 100644
 --- a/Assemble.c
 +++ b/Assemble.c
 @@ -135,17 +135,17 @@ static int ident_matches(struct mddev_ident *ident,
@@ -153,7 +153,7 @@ index dba910cd..49804941 100644
  		content->array.minor_version = 0;
  		strcpy(content->text_version, "1.0");
 diff --git a/mdadm.c b/mdadm.c
-index d06e2820..57e8e6fa 100644
+index d06e282..57e8e6f 100644
 --- a/mdadm.c
 +++ b/mdadm.c
 @@ -724,13 +724,12 @@ int main(int argc, char *argv[])
@@ -272,7 +272,7 @@ index d06e2820..57e8e6fa 100644
  		case Dump:
  			rv |= Dump_metadata(dv->devname, dump_directory, c, ss);
 diff --git a/mdadm.h b/mdadm.h
-index 924f4b63..13f8b4cb 100644
+index 924f4b6..13f8b4c 100644
 --- a/mdadm.h
 +++ b/mdadm.h
 @@ -616,7 +616,7 @@ struct context {
@@ -284,6 +284,3 @@ index 924f4b63..13f8b4cb 100644
  	int	scan;
  	int	SparcAdjust;
  	int	autof;
--- 
-2.38.1
-
