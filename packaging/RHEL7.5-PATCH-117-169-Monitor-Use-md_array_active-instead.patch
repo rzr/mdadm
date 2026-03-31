@@ -1,4 +1,3 @@
-From b9a0309c7fc3e6c1607d51ab3c3f8486478a65ef Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Mon, 8 May 2017 17:34:08 -0400
 Subject: [RHEL7.5 PATCH 117/169] Monitor: Use md_array_active() instead of
@@ -76,6 +75,3 @@ index e2b36ff..b5231d2 100644
  	fcntl(fd, F_SETFD, FD_CLOEXEC);
  	if (md_get_array_info(fd, &array) < 0) {
  		if (!st->err)
--- 
-2.7.4
-
