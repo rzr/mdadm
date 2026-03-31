@@ -1,8 +1,7 @@
-From 2c8890e926a4c7f9169b5054e3dbf84426fe1025 Mon Sep 17 00:00:00 2001
 From: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date: Thu, 28 Sep 2017 14:41:07 +0200
-Subject: [PATCH 01/12] Don't abort starting the array if kernel does
- not support ppl
+Subject: [PATCH 01/12] Don't abort starting the array if kernel does not
+ support ppl
 
 Change the behavior of assemble and create for consistency-policy=ppl
 for external metadata arrays. If the kernel does not support ppl, don't
@@ -56,7 +55,7 @@ index 68f0c2d..cc3c6f1 100644
  	/* honor 'frozen' */
  	if (sysfs_get_str(&a->info, NULL, "metadata_version", buf, sizeof(buf)) > 0)
 diff --git a/super-intel.c b/super-intel.c
-index bbe7bc7..e3dcd3d 100644
+index 125c3a9..2f378de 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -7669,7 +7669,6 @@ static struct mdinfo *container_content_imsm(struct supertype *st, char *subarra
@@ -101,6 +100,3 @@ index 68ddd5f..bf5c8c5 100644
  			rv |= sysfs_set_num(sra, sd, "ppl_sector", sd->ppl_sector);
  			rv |= sysfs_set_num(sra, sd, "ppl_size", sd->ppl_size);
  		}
--- 
-2.7.4
-
