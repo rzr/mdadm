@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:48 +0200
+Subject: allocate-buffer-to-support-maximum-sector-size
+
 commit 853375734edcfd70ba64b444b9e69f7e336a30b7
 Author: Alexey Obitotskiy <aleksey.obitotskiy@intel.com>
 Date:   Tue May 9 12:25:44 2017 +0200
@@ -13,6 +17,9 @@ Date:   Tue May 9 12:25:44 2017 +0200
     Signed-off-by: Alexey Obitotskiy <aleksey.obitotskiy@intel.com>
     Signed-off-by: Tomasz Majchrzak <tomasz.majchrzak@intel.com>
     Signed-off-by: Jes Sorensen <jsorensen@fb.com>
+---
+ super-intel.c | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
 
 diff --git a/super-intel.c b/super-intel.c
 index 2a5d848..cfb10d5 100644
