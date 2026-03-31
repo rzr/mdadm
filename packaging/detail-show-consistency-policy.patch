@@ -1,3 +1,7 @@
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 14:50:47 +0200
+Subject: detail-show-consistency-policy
+
 commit 65884368cd42d79b567f12d3e84adc7009e12d72
 Author: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date:   Wed Mar 29 11:54:16 2017 +0200
@@ -10,6 +14,13 @@ Date:   Wed Mar 29 11:54:16 2017 +0200
     
     Signed-off-by: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
     Signed-off-by: Jes Sorensen <Jes.Sorensen@gmail.com>
+---
+ Detail.c      | 90 +++++++++++++++++++++++++++++++++++------------------------
+ super-ddf.c   |  6 ++--
+ super-intel.c |  2 +-
+ super0.c      |  4 +--
+ super1.c      |  9 +++---
+ 5 files changed, 65 insertions(+), 46 deletions(-)
 
 diff --git a/Detail.c b/Detail.c
 index 3d92855..136875b 100644
