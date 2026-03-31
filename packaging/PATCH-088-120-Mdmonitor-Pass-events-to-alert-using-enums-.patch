@@ -1,8 +1,7 @@
-From 50232a6ec4a5c46c608181d72d0c633831a03134 Mon Sep 17 00:00:00 2001
 From: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Date: Thu, 2 Feb 2023 12:27:00 +0100
-Subject: [PATCH 088/120] Mdmonitor: Pass events to alert() using enums instead
- of strings
+Subject: [PATCH 088/120] Mdmonitor: Pass events to alert() using enums
+ instead of strings
 
 Add events enum, and mapping_t struct, that maps them to strings, so
 that enums are passed around instead of strings.
@@ -11,11 +10,11 @@ Signed-off-by: Mateusz Grzonka <mateusz.grzonka@intel.com>
 Acked-by: Coly Li <colyli@suse.de>
 Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
 ---
- Monitor.c | 136 +++++++++++++++++++++++++++++++++---------------------
+ Monitor.c | 136 ++++++++++++++++++++++++++++++++++++++------------------------
  1 file changed, 83 insertions(+), 53 deletions(-)
 
 diff --git a/Monitor.c b/Monitor.c
-index 9ef4dab8..029e9efd 100644
+index 9ef4dab..029e9ef 100644
 --- a/Monitor.c
 +++ b/Monitor.c
 @@ -32,6 +32,8 @@
@@ -308,6 +307,3 @@ index 9ef4dab8..029e9efd 100644
  					break;
  				}
  			}
--- 
-2.38.1
-
