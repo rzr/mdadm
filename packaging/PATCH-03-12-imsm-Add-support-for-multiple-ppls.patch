@@ -1,4 +1,3 @@
-From c24620685185eb7a159a8563b60a5e062b03b12e Mon Sep 17 00:00:00 2001
 From: Pawel Baldysiak <pawel.baldysiak@intel.com>
 Date: Thu, 28 Sep 2017 14:41:09 +0200
 Subject: [PATCH 03/12] imsm: Add support for multiple ppls
@@ -15,7 +14,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 27 insertions(+), 10 deletions(-)
 
 diff --git a/super-intel.c b/super-intel.c
-index e3dcd3d..347838e 100644
+index 2f378de..21eb048 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -92,6 +92,9 @@
@@ -127,6 +126,3 @@ index e3dcd3d..347838e 100644
  		}
  		super->random = random32();
  		di->next = rv;
--- 
-2.7.4
-
