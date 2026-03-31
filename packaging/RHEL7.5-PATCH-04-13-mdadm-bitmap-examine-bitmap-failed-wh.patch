@@ -1,8 +1,7 @@
-From 8cc56e8b3269305ec5483527d853464eac3bf690 Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Mon, 28 Aug 2017 17:24:27 +0800
-Subject: [RHEL7.5 PATCH 04/13] mdadm/bitmap: examine-bitmap failed when bitmap
- is external mode
+Subject: [RHEL7.5 PATCH 04/13] mdadm/bitmap: examine-bitmap failed when
+ bitmap is external mode
 
 --examine-bitmap: the bitmap_file_open() shouldn't omit the
 regular file descriptor when the bitmap is external mode.
@@ -55,6 +54,3 @@ index 3653660..e38cb96 100644
  	}
  
  	return fd;
--- 
-2.7.4
-
