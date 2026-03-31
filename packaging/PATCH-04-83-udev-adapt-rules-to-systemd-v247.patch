@@ -1,4 +1,3 @@
-From cf9a109209aad285372b67306d54118af6fc522b Mon Sep 17 00:00:00 2001
 From: Mariusz Tkaczyk <mariusz.tkaczyk@linux.intel.com>
 Date: Fri, 14 Jan 2022 16:44:33 +0100
 Subject: [PATCH 04/83] udev: adapt rules to systemd v247
@@ -21,7 +20,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  3 files changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/udev-md-raid-arrays.rules b/udev-md-raid-arrays.rules
-index 13c9076e..2967ace1 100644
+index 13c9076..2967ace 100644
 --- a/udev-md-raid-arrays.rules
 +++ b/udev-md-raid-arrays.rules
 @@ -3,7 +3,7 @@
@@ -34,7 +33,7 @@ index 13c9076e..2967ace1 100644
  
  # partitions have no md/{array_state,metadata_version}, but should not
 diff --git a/udev-md-raid-assembly.rules b/udev-md-raid-assembly.rules
-index d668cddd..39b4344b 100644
+index d668cdd..39b4344 100644
 --- a/udev-md-raid-assembly.rules
 +++ b/udev-md-raid-assembly.rules
 @@ -30,8 +30,9 @@ LABEL="md_inc"
@@ -50,7 +49,7 @@ index d668cddd..39b4344b 100644
  ACTION=="remove", ENV{ID_PATH}!="?*", RUN+="BINDIR/mdadm -If $name"
  
 diff --git a/udev-md-raid-safe-timeouts.rules b/udev-md-raid-safe-timeouts.rules
-index 12bdcaa8..2e185cee 100644
+index 12bdcaa..2e185ce 100644
 --- a/udev-md-raid-safe-timeouts.rules
 +++ b/udev-md-raid-safe-timeouts.rules
 @@ -50,7 +50,7 @@ ENV{DEVTYPE}!="partition", GOTO="md_timeouts_end"
@@ -62,6 +61,3 @@ index 12bdcaa8..2e185cee 100644
    ENV{ID_FS_TYPE}=="linux_raid_member", \
    ENV{MD_LEVEL}=="raid[1-9]*", \
    TEST=="/sys/block/$parent/device/timeout", \
--- 
-2.38.1
-
