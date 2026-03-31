@@ -1,4 +1,3 @@
-From 41edf6f45895193f4a523cb0a08d639c9ff9ccc9 Mon Sep 17 00:00:00 2001
 From: Logan Gunthorpe <logang@deltatee.com>
 Date: Wed, 22 Jun 2022 14:25:12 -0600
 Subject: [PATCH 37/83] mdadm: Fix optional --write-behind parameter
@@ -22,7 +21,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/mdadm.c b/mdadm.c
-index d0c5e6de..56722ed9 100644
+index d0c5e6d..56722ed 100644
 --- a/mdadm.c
 +++ b/mdadm.c
 @@ -1201,8 +1201,9 @@ int main(int argc, char *argv[])
@@ -37,6 +36,3 @@ index d0c5e6de..56722ed9 100644
  				pr_err("Invalid value for maximum outstanding write-behind writes: %s.\n\tMust be between 0 and 16383.\n",
  						optarg);
  				exit(2);
--- 
-2.38.1
-
