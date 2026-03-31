@@ -1,4 +1,3 @@
-From 53835cf50023aaad6887b647a3aaab524bd9b39e Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Tue, 10 Jan 2017 18:51:40 -0500
 Subject: [RHEL7.5 PATCH 001/169] Makefile: Fix date to be output in ISO
@@ -26,6 +25,3 @@ index 5fd7f16..a6f464c 100644
  DVERS = $(if $(VERSION),-DVERSION=\"$(VERSION)\",)
  DDATE = $(if $(VERS_DATE),-DVERS_DATE="\"$(VERS_DATE)\"",)
  CFLAGS += $(DVERS) $(DDATE)
--- 
-2.7.4
-
