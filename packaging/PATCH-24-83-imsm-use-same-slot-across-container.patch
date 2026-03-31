@@ -1,4 +1,3 @@
-From 6d4d9ab295de165e57b5c30e044028dbffb8f297 Mon Sep 17 00:00:00 2001
 From: Mariusz Tkaczyk <mariusz.tkaczyk@linux.intel.com>
 Date: Tue, 21 Jun 2022 00:10:42 +0800
 Subject: [PATCH 24/83] imsm: use same slot across container
@@ -15,11 +14,11 @@ Signed-off-by: Mariusz Tkaczyk <mariusz.tkaczyk@linux.intel.com>
 Acked-by: Coly Li <colyli@suse.de>
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
 ---
- super-intel.c | 169 ++++++++++++++++++++++++++++++++------------------
+ super-intel.c | 169 +++++++++++++++++++++++++++++++++++++---------------------
  1 file changed, 108 insertions(+), 61 deletions(-)
 
 diff --git a/super-intel.c b/super-intel.c
-index cd1f1e3d..deef7c87 100644
+index cd1f1e3..deef7c8 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -7522,11 +7522,27 @@ static int validate_geometry_imsm_volume(struct supertype *st, int level,
@@ -247,6 +246,3 @@ index cd1f1e3d..deef7c87 100644
  			/* Cannot find maximum available space
  			 */
  			max_size = 0;
--- 
-2.38.1
-
