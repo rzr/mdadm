@@ -1,8 +1,7 @@
-From cf622ec1d81a5bb3f882922667bac494b3a16581 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <Jes.Sorensen@gmail.com>
 Date: Wed, 5 Apr 2017 11:53:12 -0400
-Subject: [RHEL7.5 PATCH 050/169] Create: Fixup bad placement of logical ||
- && in multi-line if statements
+Subject: [RHEL7.5 PATCH 050/169] Create: Fixup bad placement of logical || &&
+ in multi-line if statements
 
 These always go at the end of the line, never at the front
 
@@ -71,6 +70,3 @@ index ba24606..17333ce 100644
  		info.array.state = 1; /* clean, but one+ drive will be missing*/
  		info.resync_start = MaxSector;
  	} else {
--- 
-2.7.4
-
