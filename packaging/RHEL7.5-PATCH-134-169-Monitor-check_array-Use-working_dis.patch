@@ -1,8 +1,7 @@
-From e5eb6857cde0a6a44684dcc7ea0fb196546cf56c Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 9 May 2017 17:15:14 -0400
-Subject: [RHEL7.5 PATCH 134/169] Monitor/check_array: Use working_disks
- from sysfs
+Subject: [RHEL7.5 PATCH 134/169] Monitor/check_array: Use working_disks from
+ sysfs
 
 sysfs now provides working_disks information, so lets use it too.
 
@@ -33,6 +32,3 @@ index 2204528..5b95847 100644
  	st->spare = sra->array.spare_disks;
  	st->failed = sra->array.failed_disks;
  	st->utime = array.utime;
--- 
-2.7.4
-
