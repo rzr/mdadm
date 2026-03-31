@@ -1,8 +1,7 @@
-From 0dfff0f24355ad4b5c1776f7f19a404ffae25415 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Fri, 21 Apr 2017 12:04:05 -0400
-Subject: [RHEL7.5 PATCH 090/169] Query: Quiet gcc since it cannot know
- errno != 0 in this case
+Subject: [RHEL7.5 PATCH 090/169] Query: Quiet gcc since it cannot know errno
+ != 0 in this case
 
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
 ---
@@ -23,6 +22,3 @@ index 4dec9f5..2bd0e2a 100644
  		} else {
  			level = array.level;
  			raid_disks = array.raid_disks;
--- 
-2.7.4
-
