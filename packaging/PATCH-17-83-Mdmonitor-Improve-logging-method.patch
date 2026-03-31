@@ -1,4 +1,3 @@
-From f5ff2988761625b43eb15555993f2797af29f166 Mon Sep 17 00:00:00 2001
 From: Kinga Tanska <kinga.tanska@intel.com>
 Date: Mon, 6 Jun 2022 12:32:13 +0200
 Subject: [PATCH 17/83] Mdmonitor: Improve logging method
@@ -14,7 +13,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 14 insertions(+), 11 deletions(-)
 
 diff --git a/Monitor.c b/Monitor.c
-index 4e5802b5..6ca1ebe5 100644
+index 4e5802b..6ca1ebe 100644
 --- a/Monitor.c
 +++ b/Monitor.c
 @@ -136,24 +136,27 @@ int Monitor(struct mddev_dev *devlist,
@@ -56,6 +55,3 @@ index 4e5802b5..6ca1ebe5 100644
  	info.alert_cmd = alert_cmd;
  	info.mailaddr = mailaddr;
  	info.mailfrom = mailfrom;
--- 
-2.38.1
-
