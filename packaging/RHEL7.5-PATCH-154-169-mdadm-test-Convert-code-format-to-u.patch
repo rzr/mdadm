@@ -1,8 +1,6 @@
-From 662c349a5a995c270c8f7bcf0a4b4a0408c813fd Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Wed, 7 Jun 2017 17:31:26 +0800
-Subject: [RHEL7.5 PATCH 154/169] mdadm/test: Convert code format to use
- Tab
+Subject: [RHEL7.5 PATCH 154/169] mdadm/test: Convert code format to use Tab
 
 In case to make codes neat, this commit didn't change
 any codes, just tidy up and use Tab as code format.
@@ -801,6 +799,3 @@ index 13f1bda..7942d6e 100755
 +	done
  fi
  exit 0
--- 
-2.7.4
-
