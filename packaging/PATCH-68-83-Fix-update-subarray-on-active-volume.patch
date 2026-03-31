@@ -1,4 +1,3 @@
-From db10eab68e652f141169b7240e057d110d626c3d Mon Sep 17 00:00:00 2001
 From: Mateusz Kusiak <mateusz.kusiak@intel.com>
 Date: Mon, 2 Jan 2023 09:35:16 +0100
 Subject: [PATCH 68/83] Fix --update-subarray on active volume
@@ -16,7 +15,7 @@ Signed-off-by: Jes Sorensen <jes@trained-monkey.org>
  2 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/Manage.c b/Manage.c
-index b1d0e630..5a9ea316 100644
+index b1d0e63..5a9ea31 100644
 --- a/Manage.c
 +++ b/Manage.c
 @@ -1745,6 +1745,13 @@ int Update_subarray(char *dev, char *subarray, char *update, struct mddev_ident
@@ -34,7 +33,7 @@ index b1d0e630..5a9ea316 100644
  		st->update_tail = &st->updates;
  
 diff --git a/super-intel.c b/super-intel.c
-index b0565610..5f93f3d3 100644
+index b056561..5f93f3d 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -7914,11 +7914,6 @@ static int update_subarray_imsm(struct supertype *st, char *subarray,
@@ -49,6 +48,3 @@ index b0565610..5f93f3d3 100644
  		if (!check_name(super, name, 0))
  			return 2;
  
--- 
-2.38.1
-
