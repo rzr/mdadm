@@ -1,8 +1,7 @@
-From 7054da69c778a69ea5e83965bb15620ad5e9e053 Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Mon, 20 Mar 2017 13:20:06 +0800
-Subject: [RHEL7.5 PATCH 011/169] mdadm:fixed some trivial typos in
- comments of mdadm.h
+Subject: [RHEL7.5 PATCH 011/169] mdadm:fixed some trivial typos in comments
+ of mdadm.h
 
 mdadm.h: fixed some trivial typos in comments
 
@@ -34,6 +33,3 @@ index 71b8afb..91fd9eb 100644
   *
   * The superswitch primarily operates on some "metadata" that
   * is accessed via the 'supertype'.
--- 
-2.7.4
-
