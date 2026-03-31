@@ -1,5 +1,15 @@
---- mdadm/udev-md-raid-assembly.rules.orig	2023-01-06 16:37:03.780756100 +0800
-+++ mdadm/udev-md-raid-assembly.rules	2023-01-06 17:04:09.536159980 +0800
+From: Nobody GBP User Philippe Coval <nobody+gbp+philippe.coval@vates.tech>
+Date: Tue, 31 Mar 2026 15:03:30 +0200
+Subject: mdadm-udev
+
+---
+ udev-md-raid-assembly.rules | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/udev-md-raid-assembly.rules b/udev-md-raid-assembly.rules
+index d4a7f0a..9f5ed43 100644
+--- a/udev-md-raid-assembly.rules
++++ b/udev-md-raid-assembly.rules
 @@ -5,6 +5,9 @@
  ENV{ANACONDA}=="?*", GOTO="md_inc_end"
  # assemble md arrays
@@ -10,7 +20,7 @@
  SUBSYSTEM!="block", GOTO="md_inc_end"
  
  # skip non-initialized devices
-@@ -33,6 +36,13 @@
+@@ -33,6 +36,13 @@ GOTO="md_inc_end"
  
  LABEL="md_inc"
  
