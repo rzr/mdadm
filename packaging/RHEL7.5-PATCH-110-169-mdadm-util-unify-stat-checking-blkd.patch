@@ -1,8 +1,7 @@
-From 9e04ac1c43e63eccb68eb196174069e5c23d0270 Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Fri, 5 May 2017 11:09:41 +0800
-Subject: [RHEL7.5 PATCH 110/169] mdadm/util: unify stat checking blkdev
- into function
+Subject: [RHEL7.5 PATCH 110/169] mdadm/util: unify stat checking blkdev into
+ function
 
 declare function stat_is_blkdev() to integrate repeated stat
 checking blkdev operations, it returns 'true/1' when it is a
@@ -330,6 +329,3 @@ index a92faf8..11ff2cc 100644
  int ask(char *mesg)
  {
  	char *add = "";
--- 
-2.7.4
-
