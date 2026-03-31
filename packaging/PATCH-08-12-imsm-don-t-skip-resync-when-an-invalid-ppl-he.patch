@@ -1,8 +1,7 @@
-From b23d07503d5940086ea0884d09a737ccb0a9e435 Mon Sep 17 00:00:00 2001
 From: Artur Paszkiewicz <artur.paszkiewicz@intel.com>
 Date: Thu, 28 Sep 2017 14:41:14 +0200
-Subject: [PATCH 08/12] imsm: don't skip resync when an invalid ppl
- header is found
+Subject: [PATCH 08/12] imsm: don't skip resync when an invalid ppl header is
+ found
 
 If validate_ppl_imsm() detects an invalid ppl header it will be
 overwritten with a valid, empty ppl header. But if we are assembling an
@@ -21,7 +20,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 16 insertions(+), 2 deletions(-)
 
 diff --git a/super-intel.c b/super-intel.c
-index 630fb6e..7b2327b 100644
+index 6c48725..016a602 100644
 --- a/super-intel.c
 +++ b/super-intel.c
 @@ -6080,6 +6080,16 @@ static int write_init_ppl_imsm(struct supertype *st, struct mdinfo *info, int fd
@@ -56,6 +55,3 @@ index 630fb6e..7b2327b 100644
  
  	return ret;
  }
--- 
-2.7.4
-
