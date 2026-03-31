@@ -1,8 +1,6 @@
-From 80223cb4db3358a24c41a76414a3804c26d5ea3a Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 2 May 2017 10:40:07 -0400
-Subject: [RHEL7.5 PATCH 102/169] Manage: Manage_ro(): Use
- md_array_active()
+Subject: [RHEL7.5 PATCH 102/169] Manage: Manage_ro(): Use md_array_active()
 
 One call less to md_get_array_info() for determining whether an array
 is active or not.
@@ -36,6 +34,3 @@ index 8966e33..230309b 100644
  		rv = 1;
  		goto out;
  	}
--- 
-2.7.4
-
