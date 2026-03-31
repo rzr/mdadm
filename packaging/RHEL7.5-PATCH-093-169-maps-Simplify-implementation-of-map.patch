@@ -1,8 +1,6 @@
-From 4a4379b054a72b3c4abd93dd6e1283d6aa992ee2 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Fri, 21 Apr 2017 12:11:21 -0400
-Subject: [RHEL7.5 PATCH 093/169] maps: Simplify implementation of
- map_name()
+Subject: [RHEL7.5 PATCH 093/169] maps: Simplify implementation of map_name()
 
 Reported-By: NeilBrown <neilb@suse.com>
 Signed-off-by: Jes Sorensen <jsorensen@fb.com>
@@ -27,6 +25,3 @@ index 81f29c4..bb28ba6 100644
  
  	return map->num;
  }
--- 
-2.7.4
-
