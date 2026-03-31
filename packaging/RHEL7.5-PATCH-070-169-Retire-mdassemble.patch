@@ -1,4 +1,3 @@
-From 32141c1765967e37d6f1accdf124c166bc103c3b Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Tue, 11 Apr 2017 12:54:26 -0400
 Subject: [RHEL7.5 PATCH 070/169] Retire mdassemble
@@ -1391,6 +1390,3 @@ index a536f81..a695c45 100644
  	set_cmap_hooks();
  }
 -#endif
--- 
-2.7.4
-
