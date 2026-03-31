@@ -1,4 +1,3 @@
-From bb8354598676428af01f23bfb1876c7356d61147 Mon Sep 17 00:00:00 2001
 From: Mariusz Tkaczyk <mariusz.tkaczyk@intel.com>
 Date: Fri, 18 Aug 2017 12:00:23 +0200
 Subject: [RHEL7.5 PATCH 01/13] Detail: differentiate between container and
@@ -84,6 +83,3 @@ index 2c9fb24..4dcf81d 100644
  			printf("             State : inactive\n");
  		}
  		if (array.raid_disks)
--- 
-2.7.4
-
