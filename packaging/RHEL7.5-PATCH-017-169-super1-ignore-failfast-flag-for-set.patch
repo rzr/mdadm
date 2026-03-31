@@ -1,4 +1,3 @@
-From e23c2663da73f905aa5fa9800feda3d08a8026ee Mon Sep 17 00:00:00 2001
 From: Gioh Kim <gi-oh.kim@profitbricks.com>
 Date: Mon, 20 Mar 2017 10:51:56 +0100
 Subject: [RHEL7.5 PATCH 017/169] super1: ignore failfast flag for setting
@@ -43,6 +42,3 @@ index 882cd61..f3520ac 100644
  		*rp = MD_DISK_ROLE_SPARE;
  	else
  		*rp = MD_DISK_ROLE_FAULTY;
--- 
-2.7.4
-
