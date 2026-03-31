@@ -1,4 +1,3 @@
-From 2dab69c9e3acace828bbb6a00514fa820f8ca64f Mon Sep 17 00:00:00 2001
 From: Mariusz Tkaczyk <mariusz.tkaczyk@intel.com>
 Date: Wed, 16 Aug 2017 14:59:46 +0200
 Subject: [RHEL7.5 PATCH 169/169] Monitor: Include containers in spare
@@ -31,6 +30,3 @@ index f70e5b5..497e364 100644
  		goto disappeared;
  
  	fcntl(fd, F_SETFD, FD_CLOEXEC);
--- 
-2.7.4
-
