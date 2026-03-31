@@ -1,4 +1,3 @@
-From fa601c2e897adfb3d2316377354269ffdeb824c3 Mon Sep 17 00:00:00 2001
 From: Pawel Baldysiak <pawel.baldysiak@intel.com>
 Date: Thu, 28 Sep 2017 14:41:08 +0200
 Subject: [PATCH 02/12] super1: Add support for multiple-ppls
@@ -16,7 +15,7 @@ Signed-off-by: Jes Sorensen <jsorensen@fb.com>
  1 file changed, 37 insertions(+), 28 deletions(-)
 
 diff --git a/super1.c b/super1.c
-index 3cfbbc0..f80e38a 100644
+index f6a1045..b31f845 100644
 --- a/super1.c
 +++ b/super1.c
 @@ -121,6 +121,9 @@ struct misc_dev_info {
@@ -189,6 +188,3 @@ index 3cfbbc0..f80e38a 100644
  
  	if (data_offset == INVALID_SECTORS)
  		data_offset = st->data_offset;
--- 
-2.7.4
-
