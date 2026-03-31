@@ -1,4 +1,3 @@
-From 8a70632fc2f9026e0f4895f5348cc7cd20d9fbb3 Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Wed, 12 Apr 2017 16:36:38 +0800
 Subject: [RHEL7.5 PATCH 073/169] mdadm/manpage:update manpage for readonly
@@ -39,6 +38,3 @@ index 744c12b..f10a8b8 100644
  
  .SH MANAGE MODE
  .HP 12
--- 
-2.7.4
-
