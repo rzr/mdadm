@@ -1,8 +1,7 @@
-From 9d67f6496c71efbc68b33aea663dbcc1597a0828 Mon Sep 17 00:00:00 2001
 From: Zhilong Liu <zlliu@suse.com>
 Date: Wed, 1 Mar 2017 18:42:33 +0800
-Subject: [RHEL7.5 PATCH 005/169] mdadm:check the nodes when operate
- clustered array
+Subject: [RHEL7.5 PATCH 005/169] mdadm:check the nodes when operate clustered
+ array
 
 It doesn't make sense to write_bitmap with less than 2 nodes,
 in order to avoid 'write_bitmap' received invalid nodes number,
@@ -50,6 +49,3 @@ index 87a74cb..882cd61 100644
  				/* Since the nodes num is not increased, no need to check the space
  				 * is enough or not, just update bms->nodes */
  				bms->nodes = __cpu_to_le32(st->nodes);
--- 
-2.7.4
-
