@@ -1,4 +1,3 @@
-From 8d0cd09d73a9a9d57ee73b7a79114e881dad1507 Mon Sep 17 00:00:00 2001
 From: Jes Sorensen <jsorensen@fb.com>
 Date: Thu, 13 Apr 2017 11:53:21 -0400
 Subject: [RHEL7.5 PATCH 079/169] Query: Handle error returned by fstat()
@@ -67,6 +66,3 @@ index bea273f..0d18da4 100644
  	else {
  		printf("%s: %s %s %d devices, %d spare%s. Use mdadm --detail for more detail.\n",
  		       dev,
--- 
-2.7.4
-
